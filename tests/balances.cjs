@@ -29,3 +29,11 @@ assert.equal(g.unsepCount,1);assert.equal(g.unsepAmount,-20);assert.equal(g.acco
 g=run(`globalBalance(tx,acc,'año',${NOW})`);assert.equal(g.personal.income,300);assert.equal(g.personal.expense,50);
 g=run(`globalBalance(tx,acc,'todo',${NOW})`);assert.equal(g.personal.expense,149);assert.equal(g.total.expense,581.36);
 console.log('PASS: global balance by period (month/year/all), totals and personal/professional split, unseparated and unassigned accounts.');
+
+// Cuentas mixtas
+ctx.acc2=[{name:'Caixa',area:'Mixta',proAmount:700,amount:1000,updatedAt:1},{name:'Sabadell',area:'Mixta',amount:2000,updatedAt:1},{name:'Efectivo',area:'Personal',amount:50,updatedAt:1},{name:'Trade',amount:300,updatedAt:1}];
+g=run(`globalBalance([],acc2,'mes',${NOW})`);
+assert.equal(g.total.have,3350);assert.equal(g.profesional.have,700);assert.equal(g.personal.have,350);
+assert.equal(g.unsplitAmount,2300);assert.equal(g.unsplitCount,2);
+assert.equal(run("validBalances([{id:'a',name:'C',kind:'Banco',area:'Mixta',proAmount:5,amount:10,updatedAt:1}])"),true);
+console.log('PASS: mixed accounts with optional professional share; unsplit amount counted only in total.');

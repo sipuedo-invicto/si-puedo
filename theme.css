@@ -218,3 +218,5 @@ body.privacy-cover .shell{filter:blur(18px)}
 @media(max-width:400px){.global-table th,.global-table td{font-size:13px;padding:10px 2px}}
 .global-table thead th{text-transform:none;letter-spacing:0;font-size:12px;overflow-wrap:normal;white-space:nowrap}
 .global-table tbody th{width:27%}
+.field-hint{display:block;font-size:12px;color:#8a7a5e;margin-top:4px}
+[hidden]{display:none!important}
