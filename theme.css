@@ -139,3 +139,30 @@ nav a,nav a.active{color:#2b241b}
 .feel-bar-fill .ico{width:16px;height:16px;margin-top:4px}
 .step .ico{width:20px;height:20px}
 .feel-written{padding:10px 0;border-bottom:1px solid #e7dac3}.feel-written p{margin:4px 0}
+/* Impuestos trimestrales */
+.tax-next{margin:0 0 14px}
+.tax-next.open{background:#f6e3c4;border:1px solid #c79a55;border-radius:12px;padding:10px 12px}
+.tax-head{display:flex;align-items:center;justify-content:space-between;margin:6px 0}
+.tax-head h3{margin:0}
+.tax-head button{min-width:44px;min-height:44px;font-size:22px}
+.tax-head button:disabled{opacity:.3}
+.tax-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.tax-table th,.tax-table td{padding:10px 6px;border-bottom:1px solid #e7dac3;text-align:right}
+.tax-table th:first-child{text-align:left}
+.tax-table thead th{font-weight:500;font-size:13px;color:#65563f}
+.tax-table tfoot th,.tax-table tfoot td{font-weight:700;border-bottom:0}
+.tax-empty{color:#b3a283}
+.tax-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.tax-actions button{flex:1}
+.tax-reminder{background:#f6e3c4;border-color:#c79a55}
+.tax-reminder h2{font-size:21px;margin:0 0 6px}
+.tax-pdf-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:10px;min-height:48px;border:1px dashed #b59a6c;border-radius:12px;background:#fffaf0;cursor:pointer;font-weight:500}
+.pdf-note{background:#f6e3c4;border-radius:10px;padding:10px 12px;color:#30291f!important}
+
+/* Títulos en mayúsculas */
+h1,h2,h3,#form-title,.feel-set legend,details.fold>summary h2{text-transform:uppercase;letter-spacing:.03em}
+h1,#view>h1,.section-title h1{font-size:28px;line-height:1.15}
+.card h2,details.fold>summary h2{font-size:18px}
+h3{font-size:15px}
+#form-title{font-size:20px!important}
+@media(min-width:801px){h1,#view>h1,.section-title h1{font-size:36px}.card h2{font-size:21px}}

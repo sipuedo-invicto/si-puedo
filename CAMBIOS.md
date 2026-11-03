@@ -54,3 +54,12 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Se muestran en el registro de hoy, en el resumen («Lo que escribiste», plegado) y en el texto para consulta («LO QUE ESCRIBÍ»).
 - «Dolor y malestar físico» incluye ahora Dolor menstrual, Náuseas y Mareo (Náuseas y Mareo salen de «Cuerpo» para no duplicarlos).
 - Arreglado: la etiqueta «Intensidad: X/10» ya no se parte en varias líneas.
+
+# Impuestos trimestrales, lectura de PDFs y títulos en mayúsculas (3 de noviembre de 2026)
+
+- Nuevo `taxes.js`: pagos del **modelo 130 (IRPF)** y **303 (IVA)** como gastos profesionales (`taxModel`, `quarter`, `taxYear`; IVA 0 %).
+- Tarjeta «Impuestos trimestrales» en Finanzas (Todas/Profesional): próximo plazo, tabla por trimestres y año con totales, navegación entre años y botones «＋ Pago 130» / «＋ Pago 303». Aviso si ya hay un pago del mismo modelo y trimestre.
+- Recordatorio en **Hoy** cuando el plazo está abierto y falta apuntar algún modelo. Plazos generales (Agencia Tributaria): 1T 1–20 abr, 2T 1–20 jul, 3T 1–20 oct, 4T 1–30 ene.
+- **Subir PDF del asesor**: la app lee el texto del PDF en el propio móvil con pdf.js (incluido en `vendor/pdfjs`, Apache-2.0), detecta modelo, trimestre, año, importe y fecha, y abre el formulario relleno para revisar. Varios PDFs a la vez. Avisa si sale a compensar/devolver, si no es un 130/303 o si es un escaneado sin texto. El PDF no se guarda ni se envía.
+- Títulos en mayúsculas.
+- Pruebas: `node tests/taxes.cjs`.

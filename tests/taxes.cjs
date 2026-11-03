@@ -1,0 +1,31 @@
+// Pruebas de impuestos trimestrales (130 IRPF y 303 IVA): plazos, trimestre por defecto y totales.
+const vm=require('vm'),fs=require('fs'),assert=require('assert');
+const ctx={Intl,Date,Math,Number,String,JSON,Array,Object,document:{addEventListener(){}},state:{transactions:[]}};
+vm.createContext(ctx);vm.runInContext(fs.readFileSync('taxes.js','utf8'),ctx);const run=s=>vm.runInContext(s,ctx);
+const D=s=>`new Date(${s.split('-').map((n,i)=>i===1?Number(n)-1:Number(n)).join(',')})`;
+const nd=s=>run(`(()=>{const n=nextTaxDeadline(${D(s)});return {q:n.quarter,y:n.year,open:n.open,days:n.daysLeft,end:n.end.getMonth()+1+'-'+n.end.getDate()}})()`);
+assert.deepEqual(nd('2026-11-03'),{q:4,y:2026,open:false,days:88,end:'1-30'});
+assert.deepEqual(nd('2027-01-10'),{q:4,y:2026,open:true,days:20,end:'1-30'});
+assert.deepEqual(nd('2027-01-30'),{q:4,y:2026,open:true,days:0,end:'1-30'});
+assert.deepEqual(nd('2027-01-31'),{q:1,y:2027,open:false,days:79,end:'4-20'});
+assert.deepEqual(nd('2026-10-05'),{q:3,y:2026,open:true,days:15,end:'10-20'});
+assert.deepEqual(nd('2026-07-21'),{q:3,y:2026,open:false,days:91,end:'10-20'});
+const lc=s=>run(`(()=>{const q=lastClosedQuarter(${D(s)});return q.quarter+'T'+q.year})()`);
+assert.equal(lc('2026-11-03'),'3T2026');assert.equal(lc('2027-01-15'),'4T2026');assert.equal(lc('2026-04-02'),'1T2026');assert.equal(lc('2026-06-30'),'1T2026');
+ctx.list=[{amount:300,taxModel:'130',quarter:1,taxYear:2026},{amount:120.5,taxModel:'303',quarter:1,taxYear:2026},{amount:50,taxModel:'130',quarter:1,taxYear:2026},{amount:410,taxModel:'303',quarter:3,taxYear:2026},{amount:999,taxModel:'130',quarter:4,taxYear:2025},{amount:20,title:'Otro gasto'}];
+const s=run('taxYearSummary(2026,list)');
+assert.equal(s.rows[0].m130,350);assert.equal(s.rows[0].m303,120.5);assert.equal(s.rows[2].m303,410);assert.equal(s.rows[3].m130,0);
+assert.equal(s.total130,350);assert.equal(s.total303,530.5);
+assert.equal(run('taxYearSummary(2025,list)').total130,999);
+console.log('PASS: tax deadlines (incl. 4T in January), last closed quarter, per-quarter and yearly totals for 130 and 303.');
+
+// Lectura de texto de PDFs del asesor
+const P=x=>run(`parseTaxText(${JSON.stringify(x)})`);
+let r=P('Agencia Tributaria Justificante de presentación Modelo 130 IRPF. Pago fraccionado Ejercicio: 2026 Período: 3T Rendimiento neto 03 3.120,40 Resultado de la autoliquidación 19 412,36 Tipo de declaración: Ingreso Fecha de presentación: 14/10/2026 NRC: 1234 Importe: 412,36 €');
+assert.equal(r.model,'130');assert.equal(r.quarter,3);assert.equal(r.year,2026);assert.equal(r.amount,412.36);assert.equal(r.date,'2026-10-14');assert.equal(r.result,'ingresar');
+r=P('AGENCIA TRIBUTARIA IVA. Autoliquidación. Modelo 303 Ejercicio 2026 Periodo 2T Base imponible 01 4.500,00 Cuota 03 945,00 Total cuota devengada 27 1.180,25 Total a deducir 45 200,25 Resultado de la liquidación 71 980,00 Resultado: A ingresar Fecha: 18-07-2026');
+assert.equal(r.model,'303');assert.equal(r.quarter,2);assert.equal(r.amount,980);assert.equal(r.date,'2026-07-18');
+r=P('Modelo 303 Impuesto sobre el Valor Añadido Ejercicio 2026 Período 1T Resultado de la liquidación 71 -150,00 Resultado: A compensar');assert.equal(r.result,'compensar');
+r=P('Pago fraccionado IRPF actividades económicas 130 cuarto trimestre ejercicio 2025 a ingresar 1.234,56');assert.equal(r.model,'130');assert.equal(r.quarter,4);assert.equal(r.year,2025);assert.equal(r.amount,1234.56);
+r=P('Factura nº 23 Cliente: Ejemplo SL Total: 121,00 €');assert.equal(r.model,null);
+console.log('PASS: PDF text parsing (130 justificante, 303 form with many boxes, a compensar, text without "Modelo", unrelated PDF).');
