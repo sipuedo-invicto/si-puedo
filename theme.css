@@ -220,3 +220,7 @@ body.privacy-cover .shell{filter:blur(18px)}
 .global-table tbody th{width:27%}
 .field-hint{display:block;font-size:12px;color:#8a7a5e;margin-top:4px}
 [hidden]{display:none!important}
+.balance-net{margin:-8px 0 14px;color:#eadfc9!important;font-size:15px}
+.balance-net b{color:#fff7e6}
+.global-table .row-net th,.global-table .row-net td{font-weight:700;border-bottom:2px solid #cdb68f}
+.global-table .row-sep th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8a7a5e;padding-top:16px;font-weight:600}

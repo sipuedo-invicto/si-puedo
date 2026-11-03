@@ -87,3 +87,10 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Sustituye a los tres totales anteriores, que dependían de los filtros.
 - Cuentas **mixtas** (uso por defecto): con un campo opcional «¿cuánto es profesional?». Si se indica, esa parte cuenta como profesional y el resto como personal; si no, la cuenta solo cuenta en el total y se avisa del importe sin repartir (`proAmount`).
 - Arreglo general: los elementos con `hidden` se ocultan siempre.
+
+# Deudas en el balance y saldos automáticos (3 de noviembre de 2026)
+
+- **Balance global**: nuevas filas «Lo que debo» (deudas pendientes por área) y **«Me queda»** (tengo − debo), en Total/Personal/Profesional. En «Tu dinero hoy»: «Debes X · te quedan Y».
+- **Saldos automáticos**: al apuntar un movimiento, gasto rápido, pago de deuda o pago de 130/303 se elige la cuenta («¿De qué cuenta?»). El saldo se actualiza solo: el gasto resta y el ingreso suma; en cuentas mixtas con parte profesional, los movimientos profesionales ajustan también esa parte. La app recuerda la última cuenta usada.
+- Borrar un movimiento deshace su efecto en la cuenta; separar un movimiento «sin separar» recoloca su efecto. El nombre de la cuenta aparece en cada movimiento (`accountId`, `state.lastAccountId`).
+- Solo se ofrecen cuentas con saldo apuntado; «Ninguna» no toca saldos.
