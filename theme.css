@@ -1,0 +1,57 @@
+/* Botanical paper palette, shared by every section and form. */
+:root{color-scheme:light;--bg:#eee4d2;--ink:#1d1b18;--muted:#6c6153;--green:#24211d;--line:#d2c3aa;--peach:#e8d9bf;--paper:#faf5eb;--sand:#e5d3b3}
+body{background-color:var(--bg);background-image:radial-gradient(ellipse at 10% 12%,#d9bd8e24,transparent 48%),radial-gradient(ellipse at 85% 75%,#bda7801c,transparent 55%);color:var(--ink);-webkit-font-smoothing:antialiased}
+.shell{background:linear-gradient(105deg,#f5ecdb40,#eee4d210);min-width:0}
+aside{border-right-color:var(--line);background:#e8dac044}
+.brand{background:transparent;border-radius:0;padding:0;gap:10px;max-width:100%}
+.brand img{width:61px;height:72px;object-fit:cover;object-position:center;border-radius:4px}
+.brand strong{font-family:Georgia,'Times New Roman',serif;font-size:21px;font-weight:400;letter-spacing:.4px;color:var(--ink)}
+.brand small{font-size:9px;letter-spacing:4px;color:#544b40;font-weight:400}
+.brand .brand-type{gap:9px}.tag{font-size:8px;letter-spacing:1.65px;color:#776750}.aside-note{color:var(--muted)}
+h1,h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.6px}
+h1{font-size:44px;line-height:1.15;margin:12px 0 15px;max-width:760px}
+h2{font-size:25px;line-height:1.25}h3{font-family:Georgia,'Times New Roman',serif;font-weight:400;font-size:19px;letter-spacing:0}
+.eyebrow{color:#77664d;font-size:10px;letter-spacing:2.1px;font-weight:500}.sub{color:var(--muted);line-height:1.7;font-size:14px}
+button{background:#faf5eb;border-color:#c8b89d;border-radius:9px;color:var(--ink);min-height:42px;transition:background-color .15s,color .15s}
+button:hover{background:#eee2cc;filter:none}button.primary,.primary{background:#24211d;color:#fff9ee;border-color:#24211d}
+button.primary:hover{background:#40382e;color:#fff9ee}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:2px solid #5c4830;outline-offset:4px}
+.soft{background:transparent}a:focus-visible{border-radius:3px}button.delete{background:transparent;color:#70604a;min-height:36px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 6px #493b2510}
+.hero{background:#e8d9bd;border:1px solid #cdb995;border-radius:16px;padding:32px 34px;box-shadow:none}
+.hero:after{background-image:url('icono-512.png');width:175px;height:205px;right:18px;top:12px;border-radius:9px;opacity:.17;mix-blend-mode:multiply}
+.hero h2{font-size:30px;max-width:75%}.hero p{max-width:72%}.hero .eyebrow{color:#716044}
+.tip,.time-stopwatch,.timer,.agenda-connection{background:#eee1c9;border-color:#d2bea0}
+.time-advice{background:#e8d6b7;border:1px solid #d6bd98;border-radius:10px}
+.pill{background:#e9dfcd;color:#564a38;border:1px solid #d8c8ad;border-radius:20px;font-size:9px;letter-spacing:.55px;font-weight:500}
+.task{border-bottom-color:#e1d6c2}.task-title{color:#302b23}.meta,.mobile-note{color:#6c6153;line-height:1.65}
+.check{background:#fffaf1;border-color:#b9a587;border-radius:6px;min-height:25px}.check.done{background:#daccb1;border-color:#9c896b;color:#27221a}
+.task.done .task-title{color:#776b58}.add{border:1px dashed #ad9875;background:transparent;border-radius:8px;color:#5a4b36;min-height:44px}.add:hover{background:#eee0c7}
+.time{font-family:'DM Sans',Arial,sans-serif;color:#24211d;font-weight:400;letter-spacing:-2px}
+.timer .eyebrow,.time-stopwatch .eyebrow{color:#716044}.stat{background:#fcf7ed;border-color:#d8c9af;border-radius:11px}.stat strong{color:#24211d;font-weight:500}
+.stat small{color:#6c6153}.filters button{background:#f9f2e6;border-color:#cdbd9f}.filters .selected,.filters button.selected{background:#2c2720;color:#fff9ee;border-color:#2c2720}
+.category-card{background:#f3e9d7;border-color:#d7c5a6;border-radius:10px}.category-card strong{font-weight:500;color:inherit}.category-card.selected{background:#2c2720;color:#fff9ee;border-color:#2c2720}
+.positive,.negative{color:#29241d}.amount{font-weight:600}.step{background:#e2d0af;color:#493c29;border:1px solid #d1bb94}
+.progress{background:#e3d7bf}.progress i{background:#85704f}.time-breakdown .card-head{color:#493c29}
+.agenda-month .weekday{color:#76654c}.agenda-month button{background:transparent;min-height:41px;border-radius:7px}.agenda-month button:hover{background:#eadcc3}
+.agenda-month button.selected{background:#2c2720;color:#fff9ee}.agenda-month button i{color:#3c3427}.agenda-month button.selected i{color:#fff9ee}.agenda-month button.is-today{box-shadow:inset 0 0 0 1px #8e7651}
+.event-time{color:#29241d}.event-time small{color:#77654c}.agenda-event{border-bottom-color:#dbcdb5}.event-content h3{font-size:20px}.event-notes{color:#544937}
+.agenda-connection h3{font-size:22px}.agenda-connection summary{font-size:12px;color:#65563f;margin:12px 0;cursor:pointer}.agenda-connection .pill{background:#f3e8d5}
+.home-agenda h2{font-size:23px}.home-agenda .card-head a{color:#68563a}.home-agenda a{font-size:12px}
+nav a{border:1px solid transparent;color:#65563f}nav a.active{background:#e1d0af;color:#211d17;border-color:#cfba94;font-weight:500}
+nav a span{font-weight:400}header{color:#796950}header button{background:transparent;border-color:#d2bfa0}footer{color:#7b6b54;border-top:1px solid #d8c8ac;padding-top:19px;font-size:10px;line-height:1.85}
+dialog{background:#faf4e8;border:1px solid #c8b28e;border-radius:15px;box-shadow:0 18px 70px #34261233}dialog::backdrop{background:#2c241a66;backdrop-filter:blur(2px)}
+.dialog-head h2{font-size:27px}.dialog-head button{background:transparent;color:#5a4d38}.field{color:#574a36}input,select,textarea{background:#fffaf1;border-color:#cdbb9c;color:#24211d;border-radius:7px}
+input::placeholder,textarea::placeholder{color:#87765b}#toast{background:#30291f;color:#fff7e6;border:1px solid #867251;box-shadow:0 8px 25px #35261124;max-width:90vw}
+@media(min-width:801px){.brand strong{font-size:19px}.brand img{width:55px;height:70px}.brand{gap:7px}nav{margin-top:38px}.brand small{letter-spacing:3px}}
+@media(max-width:800px){aside{background:transparent;padding-top:22px}.brand img{width:60px;height:70px}.brand strong{font-size:25px}.brand small{font-size:9px;letter-spacing:4.5px}.brand .brand-type{gap:7px}main{padding-top:18px}header{margin-bottom:28px}h1{font-size:35px;letter-spacing:-.8px}h2{font-size:25px}.hero{padding:26px 22px}.hero h2{font-size:28px;max-width:86%}.hero p{max-width:78%;font-size:14px}.hero:after{width:140px;height:175px;right:-15px;top:55px;opacity:.14}.card{padding:23px 20px;border-radius:13px}.section-title{gap:12px}.section-title h1{font-size:33px}.section-title>.primary{min-height:44px;white-space:nowrap}.stat{padding:15px 9px}.stat strong{font-size:19px}.stat small{font-size:10px}.agenda-layout .card h2{font-size:24px}.event-actions button{min-height:40px}.pill{font-size:9px}nav{background:#f5edddf5;border-top:1px solid #c7b28c;backdrop-filter:blur(12px);padding-top:7px;padding-bottom:calc(7px + env(safe-area-inset-bottom))}nav a{border-radius:9px;font-size:9px;padding:8px 1px;color:#726249;min-height:50px}nav a.active{background:#dfceac;border-color:#d3bc93;color:#211c15}nav a span{font-size:19px}.category-card{min-height:90px}.event-content h3{font-size:20px}.dialog-head h2{font-size:26px}}
+@media(prefers-reduced-motion:reduce){button{transition:none}}
+/* Acciones rápidas y recordatorio de copia */
+.quick-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:0 0 22px}
+.quick-actions button{min-height:52px;font-size:16px;font-weight:600;border-radius:14px;background:#30291f;color:#fff7e6;border:1px solid #30291f}
+.backup-banner{display:flex;gap:16px;align-items:center;justify-content:space-between;background:#f6e3c4;border-color:#c79a55}
+.backup-banner h2{font-size:21px;margin:0 0 6px}
+.backup-banner p{margin:0}
+.backup-banner button{flex-shrink:0}
+dialog #toast{position:sticky;bottom:0;left:auto;transform:none;margin-top:14px;max-width:none}
+@media(max-width:640px){.backup-banner{flex-direction:column;align-items:stretch}}

@@ -1,0 +1,20 @@
+const vm=require('vm'),fs=require('fs'),assert=require('assert');let now=new Date(2026,10,2,10,0).getTime();class ClockDate extends Date{constructor(...a){super(...(a.length?a:[now]))}static now(){return now}}
+const els={},events={};const element=()=>({innerHTML:'',textContent:'',style:{},elements:{area:{value:'Profesional'},kind:{value:'Ingreso'}},options:[],showModal(){},close(){},scrollIntoView(){},addEventListener(){}});let storage;let formData=[];
+const ctx={document:{querySelector:s=>els[s]??=element(),addEventListener:(n,f)=>(events[n]??=[]).push(f)},window:{addEventListener(){}},location:{hash:'#tiempo'},localStorage:{getItem:()=>null,setItem:(k,v)=>storage=v},Intl,Date:ClockDate,Math,Number,String,JSON,Array,Object,Map,crypto:{randomUUID:()=>Math.random().toString()},setInterval(){},setTimeout(){},confirm:()=>true,FormData:class{constructor(){return formData[Symbol.iterator]()}},Blob,URL};vm.createContext(ctx);const run=s=>vm.runInContext(s,ctx);run(fs.readFileSync('time.js','utf8'));run(fs.readFileSync('agenda.js','utf8'));run(fs.readFileSync('app.js','utf8'));const click=d=>events.click.forEach(f=>f({target:{closest:()=>({dataset:d})}}));
+click({timeStart:'Ducharme',timeKind:'Autocuidado'});now+=120000;click({timeAction:'pause'});assert.equal(run('timeLength(tracking().active.segments)'),120000);now+=300000;click({timeAction:'pause'});now+=60000;click({timeAction:'finish'});assert.equal(run('timeLength(tracking().sessions[0].segments)'),180000);assert.equal(run('tracking().active'),null);assert(JSON.parse(storage).tracking.sessions.length===1);
+// Recovery preserves an active clock without depending on setInterval firing.
+click({timeStart:'Desayunar',timeKind:'Autocuidado'});const saved=JSON.parse(storage);now+=600000;run(`state=JSON.parse(${JSON.stringify(JSON.stringify(saved))})`);run('updateStopwatch()');assert.equal(els['#stopwatch-clock'].textContent,'00:10:00');click({timeAction:'finish'});assert.equal(run('timeLength(tracking().sessions[1].segments)'),600000);
+assert(run('validTracking(undefined)'));assert(!run("validTracking({sessions:[{id:'x',activity:'x',kind:'Otro',segments:[{start:10,end:1}]}],active:null})"));
+// Midnight clipping allocates each interval to the correct local day.
+const midnight=new Date(2026,10,3).getTime();assert.equal(run(`clippedTime([{start:${midnight-600000},end:${midnight+600000}}],${midnight},${midnight+86400000})`),600000);
+// Monday-based week and DST-aware local day bounds.
+const wb=run("reportBounds('2026-11-04','week')");assert.equal(new Date(wb.start).getDay(),1);assert.equal(new Date(wb.end).getDay(),1);
+// Manual records cannot overlap saved activities or an active clock.
+assert(run(`overlapping(${new Date(2026,10,2,10,0).getTime()},${new Date(2026,10,2,10,1).getTime()})`));
+click({timeAction:'manual'});formData=[['activity','Ordenar ropa'],['kind','Casa'],['start','2026-11-01T15:00'],['minutes','20']];els['#form'].onsubmit({preventDefault(){},target:{}});assert.equal(run('tracking().sessions.length'),3);
+// Closed-period report compares repeat activities, without treating speed as a score.
+run("tracking().sessions.push({id:'a',activity:'Ordenar ropa',kind:'Casa',segments:[{start:+new Date(2026,9,31,15),end:+new Date(2026,9,31,15,30)}]});reportDate='2026-11-01';reportMode='day';renderTime()");assert(els['#view'].innerHTML.includes('10 min menos'));assert(els['#view'].innerHTML.includes('no siempre significa'));assert(els['#view'].innerHTML.includes('no utiliza IA'));
+// Legacy copies remain valid and new timing fields round-trip with backups.
+assert(run("valid({tasks:[],transactions:[],debts:[],energy:'media'})"));assert(run('valid(state)'));
+for(const page of ['hoy','tareas','casa','tiempo','finanzas','guia'])run(`location.hash='#${page}';render()`);
+console.log('PASS: six screens, pause/resume, persistence/recovery, midnight allocation, weekly bounds, manual entry, overlap prevention, closed-period comparison, legacy backup compatibility.');
