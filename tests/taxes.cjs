@@ -29,3 +29,16 @@ r=P('Modelo 303 Impuesto sobre el Valor Añadido Ejercicio 2026 Período 1T Resu
 r=P('Pago fraccionado IRPF actividades económicas 130 cuarto trimestre ejercicio 2025 a ingresar 1.234,56');assert.equal(r.model,'130');assert.equal(r.quarter,4);assert.equal(r.year,2025);assert.equal(r.amount,1234.56);
 r=P('Factura nº 23 Cliente: Ejemplo SL Total: 121,00 €');assert.equal(r.model,null);
 console.log('PASS: PDF text parsing (130 justificante, 303 form with many boxes, a compensar, text without "Modelo", unrelated PDF).');
+
+// Justificante real de la AEAT (texto anonimizado): importe total, fecha de presentación y aplazamiento.
+r=P('INFORMACIÓN DE LA PRESENTACIÓN DE LA DECLARACIÓN Modelo 303 Registro Presentación realizada el: 10-07-2026 a las 10:00:00 SOLICITUD DE APLAZAMIENTO O FRACCIONAMIENTO Declaración presentada con: IMPORTES PENDIENTES DE INGRESO. Importe total de la declaración: 3.111,22 euros Importe pendiente de ingreso: 3.111,22 euros Ha manifestado su intención de solicitar un aplazamiento de pago. Impuesto sobre el Valor Añadido Autoliquidación Ejercicio Período Modelo 303 Declaración sin actividad 69 resultado a ingresar correspondiente a la anterior autoliquidación 71 rectificaciones 2026 2T 4.500,00 945,00');
+assert.equal(r.model,'303');assert.equal(r.quarter,2);assert.equal(r.year,2026);assert.equal(r.amount,3111.22);assert.equal(r.date,'2026-07-10');assert.equal(r.result,'ingresar');assert.equal(r.pending,true);
+r=P('Modelo 130 Presentación realizada el: 20-01-2026 Importe total de la declaración: 1.444,33 euros Impuesto sobre la Renta de las Personas Físicas Pago fraccionado Período ... Ejercicio ... 2025 4T');
+assert.equal(r.model,'130');assert.equal(r.quarter,4);assert.equal(r.year,2025);assert.equal(r.amount,1444.33);assert.equal(r.date,'2026-01-20');assert.equal(r.pending,false);
+// Resumen de texto del asesor
+ctx.parseEuro=undefined;const items=run(`parseTaxSummary('MODELOS 2026-3T:\\n- MODELO 111 2026-3T...........17,5\\n- MODELO 303 2026-3T...........1.234,6\\n- MODELO 130 2026-3T............512,07')`);
+assert.deepEqual(items.map(i=>[i.code,i.quarter,i.taxYear,i.amount]),[['111',3,2026,17.5],['303',3,2026,1234.6],['130',3,2026,512.07]]);
+// Deudas con Hacienda en el resumen anual
+const s2=run("taxYearSummary(2026,[{amount:100,taxModel:'303',quarter:2,taxYear:2026}],[{amount:3111.22,taxModel:'303',quarter:2,taxYear:2026},{amount:17.5,taxModel:'111',quarter:3,taxYear:2026}])");
+assert.equal(s2.rows[1].m303,100);assert.equal(s2.rows[1].owed303,3111.22);assert.equal(s2.owedTotal111,17.5);assert.equal(s2.total303,100);
+console.log('PASS: real AEAT receipt format (total amount, filing date, deferral), advisor text summary (111/130/303), owed amounts per quarter.');

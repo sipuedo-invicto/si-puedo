@@ -262,3 +262,8 @@ body.privacy-cover .shell{filter:blur(18px)}
 .piggy-row{margin-bottom:14px}
 .piggy-head{display:flex;justify-content:space-between;font-size:15px;margin-bottom:4px}
 .meter.iva i{background:#5f9a6b}.meter.irpf i{background:#5f9a6b}
+.tax-owed{display:block;font-size:12px;color:#a5452f;font-weight:500}
+.tax-owed-row th,.tax-owed-row td{color:#a5452f}
+.paste-preview{display:grid;gap:6px;margin:-4px 0 14px}
+.paste-preview div{display:flex;justify-content:space-between;background:#f3ead8;border-radius:10px;padding:8px 12px;font-size:14px}
+.tax-table th,.tax-table td{font-size:14px}
