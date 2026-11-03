@@ -132,3 +132,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Operaciones: `aeatReconcile`, `addDebt`, `addTransaction` (con cuenta por nombre), `addTask`, `setBalance`.
 - `tools/inbox.cjs`: añade un paquete (`INBOX_CODE=… node tools/inbox.cjs paquete.json`). La clave nunca se guarda en el repositorio.
 - Pruebas: `node tests/inbox.cjs`.
+
+# Impuestos: declarado, pagado y pendiente por modelo (3 de noviembre de 2026)
+
+- Nuevo `state.taxReturns`: importe declarado de cada modelo y trimestre. Se guarda al apuntar un modelo, subir un PDF o pegar el resumen del asesor (no al conciliar con la relación de Hacienda). Operación de buzón `setDeclared`.
+- La tarjeta de impuestos muestra cada trimestre (del más reciente al más antiguo) con, por modelo: **importe declarado**, **✓ Pagado** o **«Pagado X · debes Y»**, e intereses si el pendiente supera lo declarado. Totales del año: Declarado / Pagado / Debes.
+- Lo pagado se deduce de declarado − pendiente cuando no hay pagos apuntados.

@@ -276,3 +276,17 @@ body.privacy-cover .shell{filter:blur(18px)}
 .inbox-card .primary{background:#fff7e6;color:#30291f;border-color:#fff7e6}
 .inbox-card button:not(.primary){background:transparent;color:#fff7e6;border-color:#8a7552}
 .inbox-card .global-hint{color:#bfae8e}
+/* Impuestos por trimestre */
+.tq{margin:14px 0 4px}
+.tq h4{margin:0 0 6px;font-size:14px;letter-spacing:.05em;color:#65563f}
+.tq-row{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"m a" "s s";gap:2px 10px;padding:10px 0;border-bottom:1px solid #e7dac3}
+.tq-model{grid-area:m;font-weight:600}
+.tq-amt{grid-area:a;text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+.tq-state{grid-area:s;font-size:14px;color:#65563f}
+.tq-state .ok{color:#2f6b3a;font-weight:600}
+.tq-state .owe,.tq-totals .owe b{color:#a5452f}
+.tq-state small{color:#8a7a5e}
+.tq-totals{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0 4px;text-align:center}
+.tq-totals div{background:#f3ead8;border-radius:12px;padding:10px 4px}
+.tq-totals small{display:block;color:#65563f;font-size:12px}
+.tq-totals b{font-variant-numeric:tabular-nums}

@@ -60,3 +60,12 @@ const content='BT /F1 12 Tf 10 10 Td (Modelo 130) Tj ET BT <496D706F72746520746F
 ctx.content=content;const txt=run('pdfStringsFromContent(content)');assert.ok(txt.includes('Modelo 130'));assert.ok(txt.includes('Importe total de la declaraci'));assert.ok(txt.includes('1.000,00 euros'));
 assert.deepEqual(JSON.parse(JSON.stringify(run("hintsFromName('0106M-MOD_303_2026-2T_X.pdf')"))),{model:'303',year:2026,quarter:2});
 console.log('PASS: backup PDF text reader (Tj/TJ, hex strings) and filename hints.');
+// Declarado / pagado / debes por modelo y trimestre (cifras inventadas)
+ctx.state={transactions:[{amount:50,taxModel:'130',quarter:1,taxYear:2026}],debts:[{taxModel:'303',quarter:3,taxYear:2026,amount:1002},{taxModel:'130',quarter:2,taxYear:2026,amount:300}],taxReturns:[{code:'303',quarter:3,taxYear:2026,amount:1000},{code:'130',quarter:2,taxYear:2026,amount:500},{code:'111',quarter:3,taxYear:2026,amount:20}]};
+let st=run("taxStatus('303',3,2026)");assert.deepEqual([st.declared,st.paid,st.owed,st.interest],[1000,0,1002,2]);
+st=run("taxStatus('130',2,2026)");assert.deepEqual([st.declared,st.paid,st.owed,st.interest],[500,200,300,0]);
+st=run("taxStatus('111',3,2026)");assert.deepEqual([st.declared,st.paid,st.owed],[20,20,0]);
+st=run("taxStatus('130',1,2026)");assert.deepEqual([st.declared,st.paid,st.owed,st.inferred],[50,50,0,true]);
+assert.equal(run("taxStatus('303',4,2026)"),null);
+run("setTaxDeclared('111',3,2026,99,false)");assert.equal(run("taxDeclared('111',3,2026)"),20);run("setTaxDeclared('111',3,2026,25)");assert.equal(run("taxDeclared('111',3,2026)"),25);
+console.log('PASS: declared/paid/owed/interest per model and quarter, declarations not overwritten unless forced.');
