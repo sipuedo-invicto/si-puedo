@@ -1,7 +1,7 @@
 // Pruebas de «Cómo me siento»: validación, resúmenes semanales/mensuales y texto para consulta.
 const vm=require('vm'),fs=require('fs'),assert=require('assert');
 const ctx={Intl,Date,Math,Number,String,JSON,Array,Object,Set,document:{addEventListener(){}},state:{}};
-vm.createContext(ctx);vm.runInContext(fs.readFileSync('feelings.js','utf8'),ctx);const run=s=>vm.runInContext(s,ctx);
+vm.createContext(ctx);vm.runInContext(fs.readFileSync('icons.js','utf8'),ctx);vm.runInContext(fs.readFileSync('feelings.js','utf8'),ctx);const run=s=>vm.runInContext(s,ctx);
 const e=(id,date,o)=>({id,date,ts:+new Date(date+'T10:00:00'),mood:3,energy:null,sleep:null,sleepHours:null,pain:0,emotions:[],sensations:[],painZones:[],painNote:'',note:'',...o});
 const list=[
  e('a','2026-11-02',{mood:2,energy:2,pain:6,painZones:['Cabeza'],emotions:['Ansiedad','Agobio'],sensations:['Cansancio'],sleep:2,sleepHours:5,note:'Discusión en el trabajo'}),

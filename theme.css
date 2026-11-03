@@ -124,3 +124,17 @@ details.fold-inline>summary{cursor:pointer;font-weight:600;color:#5a4d38}
   #view>h1,.section-title h1{font-size:32px;line-height:1.1}
   .card{padding:22px 20px}
 }
+
+/* Iconos uniformes en negro */
+.ico{width:1em;height:1em;display:inline-block;vertical-align:-0.15em;color:#1f1a14}
+nav a span{line-height:0}
+nav a .ico{width:22px;height:22px}
+nav a,nav a.active{color:#2b241b}
+.mood-quick .ico{width:32px;height:32px}
+.mood-quick button{color:#1f1a14}
+.chip-group .face{width:20px;height:20px;vertical-align:-5px;margin-right:2px}
+.chip-group input:checked+label .ico{color:#fff7e6}
+.task-agenda .ico{width:20px;height:20px}
+.feel-home h2 .ico,.task-title .ico,.stat .ico{width:1.1em;height:1.1em;vertical-align:-0.2em}
+.feel-bar-fill .ico{width:16px;height:16px;margin-top:4px}
+.step .ico{width:20px;height:20px}

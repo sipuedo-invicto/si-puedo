@@ -43,3 +43,7 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - **Agenda**: fuera la tarjeta de explicación y el consejo; «Pasar citas al Calendario» y «¿Cómo funciona?» bajo la lista.
 - **Tiempo**: comparación y consejo plegados; menos texto.
 - Más espacio entre bloques e interlineado más cómodo. Las pantallas miden entre un 30 % y un 55 % menos.
+
+# Iconos uniformes (3 de noviembre de 2026)
+
+- Nuevo `icons.js`: iconos SVG de línea, mismo grosor, en negro, para la barra de navegación, las caras de ánimo, el botón de agendar tareas y los pasos de la Guía. Sustituyen a símbolos Unicode que el iPhone mostraba como emojis de colores (☀, ✳) o con estilos distintos.
