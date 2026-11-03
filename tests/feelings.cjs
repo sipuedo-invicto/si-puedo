@@ -6,7 +6,7 @@ const e=(id,date,o)=>({id,date,ts:+new Date(date+'T10:00:00'),mood:3,energy:null
 const list=[
  e('a','2026-11-02',{mood:2,energy:2,pain:6,painZones:['Cabeza'],emotions:['Ansiedad','Agobio'],sensations:['Cansancio'],sleep:2,sleepHours:5,note:'Discusión en el trabajo'}),
  e('b','2026-11-02',{mood:4,energy:3,emotions:['Ansiedad','Alivio']}),
- e('c','2026-11-04',{mood:5,energy:4,emotions:['Alegría'],sleepHours:8,sleep:4}),
+ e('c','2026-11-04',{feelText:'Desbordada',why:'Demasiadas cosas a la vez',painZones:['Dolor menstrual'],mood:5,energy:4,emotions:['Alegría'],sleepHours:8,sleep:4}),
  e('d','2026-11-08',{mood:1,pain:8,painZones:['Lumbar','Cabeza'],painNote:'Punzante'}),
  e('z','2026-10-31',{mood:4}),
 ];
@@ -36,7 +36,7 @@ const oct=run("(()=>{const b=feelBounds('month',-1,'2026-11-20');return feelSumm
 assert.equal(oct.to,'2026-10-31');assert.equal(oct.daysLogged,1);
 // Texto para consulta
 const text=run("(()=>{const b=feelBounds('week',0,'2026-11-05');return feelReportText(feelSummary(list,b.start,b.end),'week')})()");
-for(const s of ['RESUMEN SEMANAL','Días registrados: 3 de 7 (4 registros)','Estado de ánimo medio: 3/5','Dolor: 2 días','máxima 8/10','Cabeza (2 días)','Discusión en el trabajo','(dolor): Punzante','sin registro','no es una valoración clínica'])assert.ok(text.includes(s),'falta: '+s);
+for(const s of ['RESUMEN SEMANAL','Días registrados: 3 de 7 (4 registros)','Estado de ánimo medio: 3/5','Dolor: 2 días','máxima 8/10','Cabeza (2 días)','Otras notas: Discusión en el trabajo','Sobre el dolor: Punzante','Cómo me sentía: Desbordada','Por qué creo que me sentía así: Demasiadas cosas a la vez','Dolor menstrual (1 día)','sin registro','no es una valoración clínica'])assert.ok(text.includes(s),'falta: '+s);
 const empty=run("(()=>{const b=feelBounds('month',-3,'2026-11-20');return feelReportText(feelSummary(list,b.start,b.end),'month')})()");
 assert.ok(empty.includes('No hay registros'));
 const cur=run("(()=>{const b=feelBounds('week',0,'2026-11-05');return feelSummary(list,b.start,b.end,'2026-11-05')})()");

@@ -47,3 +47,10 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 # Iconos uniformes (3 de noviembre de 2026)
 
 - Nuevo `icons.js`: iconos SVG de línea, mismo grosor, en negro, para la barra de navegación, las caras de ánimo, el botón de agendar tareas y los pasos de la Guía. Sustituyen a símbolos Unicode que el iPhone mostraba como emojis de colores (☀, ✳) o con estilos distintos.
+
+# «Me siento»: escribir con tus palabras y nuevas molestias (3 de noviembre de 2026)
+
+- Nueva sección «Con tus palabras» en el registro: «¿Cómo me siento?» y «¿Por qué creo que me siento así?» (`feelText` y `why`, opcionales).
+- Se muestran en el registro de hoy, en el resumen («Lo que escribiste», plegado) y en el texto para consulta («LO QUE ESCRIBÍ»).
+- «Dolor y malestar físico» incluye ahora Dolor menstrual, Náuseas y Mareo (Náuseas y Mareo salen de «Cuerpo» para no duplicarlos).
+- Arreglado: la etiqueta «Intensidad: X/10» ya no se parte en varias líneas.
