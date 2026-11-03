@@ -63,3 +63,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - **Subir PDF del asesor**: la app lee el texto del PDF en el propio móvil con pdf.js (incluido en `vendor/pdfjs`, Apache-2.0), detecta modelo, trimestre, año, importe y fecha, y abre el formulario relleno para revisar. Varios PDFs a la vez. Avisa si sale a compensar/devolver, si no es un 130/303 o si es un escaneado sin texto. El PDF no se guarda ni se envía.
 - Títulos en mayúsculas.
 - Pruebas: `node tests/taxes.cjs`.
+
+# «Tu dinero hoy» (3 de noviembre de 2026)
+
+- Nuevo `balances.js`: tarjeta destacada al principio de Finanzas con el dinero real que se tiene hoy en bancos y efectivo, y el total. No son ingresos ni movimientos: se apunta y se actualiza a mano.
+- Varias cuentas (Banco/Efectivo), admite saldo negativo, muestra cuándo se actualizó cada una y avisa si alguna lleva más de 7 días sin actualizar. Tocar una cuenta para actualizarla o eliminarla.
+- Datos en `state.balances` (opcional; copias antiguas siguen siendo válidas). Pruebas: `node tests/balances.cjs`.
