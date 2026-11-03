@@ -183,3 +183,23 @@ h3{font-size:15px}
 .balance-stale{font-size:13px;margin:10px 0 0;color:#f6e3c4!important}
 .link-danger{background:transparent;border:0;color:#a5452f;text-decoration:underline;margin:4px 0 14px;padding:6px 0}
 .balance-amt.pending{color:#8a7a5e;font-weight:400}
+/* Protección con PIN */
+#security{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:0 10px}
+#security .ico{width:20px;height:20px}
+body.is-locked{overflow:hidden}
+body.is-locked .shell{visibility:hidden}
+#lock{position:fixed;inset:0;z-index:1000;background:#eee4d2;display:flex;align-items:center;justify-content:center;padding:24px 16px calc(24px + env(safe-area-inset-bottom))}
+.lock-inner{width:min(340px,100%);text-align:center}
+.lock-inner img{border-radius:16px}
+.lock-inner h1{margin:14px 0 4px;font-size:26px}
+#lock-msg{margin:0 0 18px;color:#5a4d38;min-height:1.5em}
+.pin-dots{display:flex;justify-content:center;gap:14px;margin-bottom:26px}
+.pin-dots i{width:14px;height:14px;border-radius:50%;border:1.5px solid #30291f}
+.pin-dots i.on{background:#30291f}
+.keypad{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.keypad button{height:68px;border-radius:50%;width:68px;margin:0 auto;font-size:26px;background:#fffaf0;border:1px solid #d3bf9b;color:#1f1a14}
+.keypad button:active{background:#e1d0af}
+#lock.shake .pin-dots{animation:shake .35s}
+@keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+body.privacy-cover .shell{filter:blur(18px)}
+.sec-actions{display:grid;gap:10px;margin:14px 0}

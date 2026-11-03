@@ -70,3 +70,12 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Varias cuentas (Banco/Efectivo), admite saldo negativo, muestra cuándo se actualizó cada una y avisa si alguna lleva más de 7 días sin actualizar. Tocar una cuenta para actualizarla o eliminarla.
 - Datos en `state.balances` (opcional; copias antiguas siguen siendo válidas). Pruebas: `node tests/balances.cjs`.
 - Cuentas creadas por defecto (una sola vez, sin saldo): Caixa, Sabadell, Cajamar, Trade y Efectivo. Aparecen como «sin apuntar» hasta poner su saldo; si se borra una, no vuelve a aparecer (`state.balancesSeeded`).
+
+# Protección con PIN, cifrado y refuerzo de seguridad (3 de noviembre de 2026)
+
+- Nuevo `security.js`: botón del candado (arriba) para activar un **PIN de 6 cifras**. Con la protección activa, los datos se guardan **cifrados** (AES-GCM 256; clave derivada del PIN con PBKDF2-SHA256, 310 000 iteraciones, sal aleatoria). Se elimina la copia sin cifrar.
+- Pantalla de bloqueo al abrir, con teclado numérico. Bloqueo automático tras más de 1 minuto fuera de la app; contenido difuminado en la multitarea. Tras 5 intentos fallidos, espera de 30 s.
+- «Guardar copia» genera una **copia cifrada** (`-protegida.json`); «Restaurar» pide el PIN de esa copia. Cambiar PIN y quitar protección desde el mismo botón.
+- Rechaza PIN triviales (repetidos o seguidos). Si se olvida el PIN, los datos no se pueden recuperar.
+- Seguridad web: política CSP (solo código propio, sin conexiones externas, sin `eval`), `no-referrer`, sin Google Fonts (la app ya no se conecta a ningún servidor externo), sin manejadores en línea; pdf.js con `isEvalSupported:false`.
+- Pruebas: `node tests/security.cjs`.
