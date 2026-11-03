@@ -203,3 +203,18 @@ body.is-locked .shell{visibility:hidden}
 @keyframes shake{0%,100%{transform:none}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
 body.privacy-cover .shell{filter:blur(18px)}
 .sec-actions{display:grid;gap:10px;margin:14px 0}
+/* Balance global */
+.period-filters{margin:0 0 12px}
+.global-table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;table-layout:fixed}
+.global-table th,.global-table td{padding:11px 4px;border-bottom:1px solid #e7dac3;text-align:right;font-size:14px;overflow-wrap:anywhere}
+.global-table thead th{font-weight:600;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:#65563f}
+.global-table tbody th{text-align:left;font-weight:500;width:30%}
+.global-table tbody th small{display:block;font-weight:400;font-size:11px;color:#8a7a5e}
+.global-table td.pos{color:#2f6b3a}
+.global-table td.neg{color:#a5452f}
+.global-table .row-have td{font-weight:700}
+.global-table .row-diff th,.global-table .row-diff td{font-weight:700;border-bottom:0}
+.global-hint{font-size:13px;color:#65563f;margin:10px 0 0}
+@media(max-width:400px){.global-table th,.global-table td{font-size:13px;padding:10px 2px}}
+.global-table thead th{text-transform:none;letter-spacing:0;font-size:12px;overflow-wrap:normal;white-space:nowrap}
+.global-table tbody th{width:27%}

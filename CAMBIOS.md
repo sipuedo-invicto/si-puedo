@@ -79,3 +79,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Rechaza PIN triviales (repetidos o seguidos). Si se olvida el PIN, los datos no se pueden recuperar.
 - Seguridad web: política CSP (solo código propio, sin conexiones externas, sin `eval`), `no-referrer`, sin Google Fonts (la app ya no se conecta a ningún servidor externo), sin manejadores en línea; pdf.js con `isEvalSupported:false`.
 - Pruebas: `node tests/security.cjs`.
+
+# Balance global (3 de noviembre de 2026)
+
+- Tarjeta «Balance global» en Finanzas, tras «Tu dinero hoy»: tabla con **Lo que tengo** (saldos de hoy), **Ingresos**, **Gastos** e **Ingresos − gastos**, en columnas **Total / Personal / Profesional**, con periodo **Mes / Año / Todo**.
+- Cada cuenta tiene ahora «Uso»: Personal o Profesional (campo `area`, opcional). Aviso si alguna cuenta no lo tiene indicado; los movimientos «Sin separar» solo cuentan en el total y se avisa de ello.
+- Sustituye a los tres totales anteriores, que dependían de los filtros.
