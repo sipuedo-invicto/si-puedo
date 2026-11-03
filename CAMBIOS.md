@@ -25,3 +25,12 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 ## Pendiente (no incluido a propósito)
 - No hay service worker / modo sin conexión: el acceso privado del alojamiento podría interferir con la caché y conviene probarlo aparte.
 - La prueba real en Safari de iPhone (hoja de compartir, `.ics`, avisos) sigue pendiente.
+
+# Nuevo apartado «Cómo me siento» (3 de noviembre de 2026)
+
+- Pestaña **Me siento** (♡) en la navegación y tarjeta en **Hoy** con cinco caras para registrar el ánimo con un toque.
+- Registro: ánimo (1–5, obligatorio), energía, emociones, sensaciones físicas, dolor (0–10 y zonas, descripción opcional), sueño (calidad y horas) y nota libre. Se puede registrar varias veces al día, editar y eliminar.
+- Resúmenes **semanales** (lunes a domingo) y **mensuales** con navegación a periodos anteriores: ánimo y energía medios, día más bajo y más alto, gráfico de ánimo por día con marca de dolor, emociones y sensaciones más frecuentes (contadas por días), dolor (días, media, máxima y zonas), sueño y notas. En el periodo en curso no cuentan los días futuros.
+- **Compartir resumen**, **Copiar texto** e **Imprimir / PDF** para llevarlo a la psicóloga o al médico.
+- Datos en `state.feelings` (opcional; las copias antiguas siguen siendo válidas). Validación en `validFeelings()`.
+- Pruebas: `node tests/feelings.cjs`.
