@@ -119,3 +119,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - «Pegar resumen» entiende también la **relación de deudas de la AEAT** («Objeto tributario: 2T 2026 130-IRPF … Importe pendiente: …»). Compara con las deudas de impuestos apuntadas y muestra los cambios antes de guardar: **pagado** (deudas que ya no aparecen), **pagado en parte** (baja el pendiente), **intereses** (sube el pendiente) y **deudas nuevas**.
 - Los pagos se registran como gastos del modelo y trimestre, sin tocar los saldos de las cuentas (ya están reflejados). Las demás deudas no se modifican.
 - «Impuestos trimestrales» y «Hucha de impuestos» van al final de Finanzas (plegado) y se muestran con cualquier filtro.
+
+# Lector de PDF más fiable en iPhone (3 de noviembre de 2026)
+
+- Nuevo lector ligero (sin pdf.js): descomprime el contenido del PDF con `DecompressionStream` y extrae el texto de las órdenes Tj/TJ. Es el lector principal; pdf.js queda de reserva para PDFs que no se puedan leer así.
+- Pistas del nombre del archivo («MOD_130_2026-2T…») si falta el modelo o el trimestre.
+- Si algo falla, el aviso muestra el motivo exacto (y se guarda en `si-puedo-pdf-error`).

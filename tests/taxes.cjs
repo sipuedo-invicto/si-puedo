@@ -55,3 +55,8 @@ run('applyReconcile(planReconcile(parseAeatDebtList(LIST)))');
 assert.deepEqual(run("state.debts.map(d=>(d.taxModel||'-')+':'+d.amount).sort()"),['-:50','130:800','303:1002.4','303:300.5'].sort());
 assert.deepEqual(run("state.transactions.map(t=>t.taxModel+' '+t.quarter+'T '+t.amount)"),['130 4T 500','130 2T 200']);
 console.log('PASS: AEAT debt list parsing and reconciliation (paid, partial, interest increase, new debt; other debts untouched).');
+// Lector de reserva: texto de órdenes Tj/TJ (literal y hexadecimal Latin-1) y pistas del nombre de archivo.
+const content='BT /F1 12 Tf 10 10 Td (Modelo 130) Tj ET BT <496D706F72746520746F74616C206465206C61206465636C61726163698E6E3A> Tj ET BT [(1.0)-20 (00,00 euros)] TJ ET';
+ctx.content=content;const txt=run('pdfStringsFromContent(content)');assert.ok(txt.includes('Modelo 130'));assert.ok(txt.includes('Importe total de la declaraci'));assert.ok(txt.includes('1.000,00 euros'));
+assert.deepEqual(JSON.parse(JSON.stringify(run("hintsFromName('0106M-MOD_303_2026-2T_X.pdf')"))),{model:'303',year:2026,quarter:2});
+console.log('PASS: backup PDF text reader (Tj/TJ, hex strings) and filename hints.');
