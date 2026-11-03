@@ -125,3 +125,10 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Nuevo lector ligero (sin pdf.js): descomprime el contenido del PDF con `DecompressionStream` y extrae el texto de las órdenes Tj/TJ. Es el lector principal; pdf.js queda de reserva para PDFs que no se puedan leer así.
 - Pistas del nombre del archivo («MOD_130_2026-2T…») si falta el modelo o el trimestre.
 - Si algo falla, el aviso muestra el motivo exacto (y se guarda en `si-puedo-pdf-error`).
+
+# Buzón de Claude (3 de noviembre de 2026)
+
+- `inbox.js` + `inbox.json`: paquetes de datos **cifrados** (AES-GCM, clave derivada con PBKDF2) que la app recoge al abrirse. La primera vez pide la **clave del buzón** (se guarda en el estado, cifrado con el PIN). Cada paquete se muestra con su resumen en Hoy y solo se aplica al tocar «Añadir»; si algo no cuadra, no se cambia nada.
+- Operaciones: `aeatReconcile`, `addDebt`, `addTransaction` (con cuenta por nombre), `addTask`, `setBalance`.
+- `tools/inbox.cjs`: añade un paquete (`INBOX_CODE=… node tools/inbox.cjs paquete.json`). La clave nunca se guarda en el repositorio.
+- Pruebas: `node tests/inbox.cjs`.
