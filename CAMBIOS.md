@@ -138,3 +138,4 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Nuevo `state.taxReturns`: importe declarado de cada modelo y trimestre. Se guarda al apuntar un modelo, subir un PDF o pegar el resumen del asesor (no al conciliar con la relación de Hacienda). Operación de buzón `setDeclared`.
 - La tarjeta de impuestos muestra cada trimestre (del más reciente al más antiguo) con, por modelo: **importe declarado**, **✓ Pagado** o **«Pagado X · debes Y»**, e intereses si el pendiente supera lo declarado. Totales del año: Declarado / Pagado / Debes.
 - Lo pagado se deduce de declarado − pendiente cuando no hay pagos apuntados.
+- Si los pagos apuntados de un modelo no cuadran con lo que se debe (más de un 5 % por encima de lo declarado), se muestra un aviso en lugar de «intereses», y lo pagado se calcula como declarado − pendiente. Operación de buzón `removeTaxPayment` para quitar pagos apuntados por error (deshace su efecto en la cuenta).

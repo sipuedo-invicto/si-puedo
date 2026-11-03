@@ -69,3 +69,8 @@ st=run("taxStatus('130',1,2026)");assert.deepEqual([st.declared,st.paid,st.owed,
 assert.equal(run("taxStatus('303',4,2026)"),null);
 run("setTaxDeclared('111',3,2026,99,false)");assert.equal(run("taxDeclared('111',3,2026)"),20);run("setTaxDeclared('111',3,2026,25)");assert.equal(run("taxDeclared('111',3,2026)"),25);
 console.log('PASS: declared/paid/owed/interest per model and quarter, declarations not overwritten unless forced.');
+
+// Pagos apuntados que no cuadran con la deuda: aviso en vez de «intereses» enormes (cifras inventadas)
+ctx.state={transactions:[{amount:900,taxModel:'303',quarter:1,taxYear:2026}],debts:[{taxModel:'303',quarter:1,taxYear:2026,amount:600}],taxReturns:[{code:'303',quarter:1,taxYear:2026,amount:900}]};
+st=run("taxStatus('303',1,2026)");assert.deepEqual([st.paid,st.owed,st.interest,st.mismatch],[300,600,0,true]);
+console.log('PASS: mismatched recorded payments flagged instead of fake interest.');
