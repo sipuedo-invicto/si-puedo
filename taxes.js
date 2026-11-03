@@ -4,7 +4,7 @@
 // Plazos generales de presentación (Agencia Tributaria): 1T 1–20 abril, 2T 1–20 julio, 3T 1–20 octubre, 4T 1–30 enero del año siguiente.
 const TAX_MODELS={'130':'Modelo 130 · IRPF','303':'Modelo 303 · IVA','111':'Modelo 111 · Retenciones'};
 const TAX_SHORT={'130':'130 · IRPF','303':'303 · IVA','111':'111 · Ret.'};
-let taxViewYear=null,taxCardOpen=true;
+let taxViewYear=null,taxCardOpen=false;
 const taxWindow=(q,year)=>q===4?{start:new Date(year+1,0,1),end:new Date(year+1,0,30)}:{start:new Date(year,q*3,1),end:new Date(year,q*3,20)};
 // Último trimestre terminado: el que toca pagar ahora o el más reciente.
 function lastClosedQuarter(now=new Date()){const m=now.getMonth();return m<3?{quarter:4,year:now.getFullYear()-1}:{quarter:Math.floor(m/3),year:now.getFullYear()}}

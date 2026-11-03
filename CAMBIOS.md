@@ -118,4 +118,4 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 
 - «Pegar resumen» entiende también la **relación de deudas de la AEAT** («Objeto tributario: 2T 2026 130-IRPF … Importe pendiente: …»). Compara con las deudas de impuestos apuntadas y muestra los cambios antes de guardar: **pagado** (deudas que ya no aparecen), **pagado en parte** (baja el pendiente), **intereses** (sube el pendiente) y **deudas nuevas**.
 - Los pagos se registran como gastos del modelo y trimestre, sin tocar los saldos de las cuentas (ya están reflejados). Las demás deudas no se modifican.
-- «Impuestos trimestrales» y «Hucha de impuestos» suben justo debajo del Balance global, se muestran siempre (con cualquier filtro) y la tarjeta de impuestos aparece abierta.
+- «Impuestos trimestrales» y «Hucha de impuestos» van al final de Finanzas (plegado) y se muestran con cualquier filtro.
