@@ -94,3 +94,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - **Saldos automáticos**: al apuntar un movimiento, gasto rápido, pago de deuda o pago de 130/303 se elige la cuenta («¿De qué cuenta?»). El saldo se actualiza solo: el gasto resta y el ingreso suma; en cuentas mixtas con parte profesional, los movimientos profesionales ajustan también esa parte. La app recuerda la última cuenta usada.
 - Borrar un movimiento deshace su efecto en la cuenta; separar un movimiento «sin separar» recoloca su efecto. El nombre de la cuenta aparece en cada movimiento (`accountId`, `state.lastAccountId`).
 - Solo se ofrecen cuentas con saldo apuntado; «Ninguna» no toca saldos.
+
+# Actualización automática (3 de noviembre de 2026)
+
+- `update.js` + `version.json`: al abrir o volver a la app comprueba si hay versión nueva y recarga sin caché (una sola vez por versión). Los scripts y estilos se cargan con `?v=versión`.
+- Antes de cada publicación: `node tools/bump.cjs`.
+- La versión instalada aparece al final de la Guía.
