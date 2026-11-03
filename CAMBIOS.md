@@ -69,3 +69,4 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Nuevo `balances.js`: tarjeta destacada al principio de Finanzas con el dinero real que se tiene hoy en bancos y efectivo, y el total. No son ingresos ni movimientos: se apunta y se actualiza a mano.
 - Varias cuentas (Banco/Efectivo), admite saldo negativo, muestra cuándo se actualizó cada una y avisa si alguna lleva más de 7 días sin actualizar. Tocar una cuenta para actualizarla o eliminarla.
 - Datos en `state.balances` (opcional; copias antiguas siguen siendo válidas). Pruebas: `node tests/balances.cjs`.
+- Cuentas creadas por defecto (una sola vez, sin saldo): Caixa, Sabadell, Cajamar, Trade y Efectivo. Aparecen como «sin apuntar» hasta poner su saldo; si se borra una, no vuelve a aparecer (`state.balancesSeeded`).

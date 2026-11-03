@@ -11,4 +11,8 @@ const now=+new Date(2026,10,3,15);
 assert.equal(run(`ageLabel(${+new Date(2026,10,3,9)},${now})`),'hoy');
 assert.equal(run(`ageLabel(${+new Date(2026,10,2,23)},${now})`),'ayer');
 assert.equal(run(`ageLabel(${+new Date(2026,9,27,12)},${now})`),'hace 7 días');
-console.log('PASS: balances validation, total with negatives, age labels.');
+assert.equal(run('ageLabel(0)'),'sin apuntar');
+ctx.uid=()=>Math.random().toString(36);ctx.save=()=>{};ctx.state={balances:[{id:'z',name:'caixa',kind:'Banco',amount:500,updatedAt:5}]};
+const seeded=run('balances()');assert.deepEqual(seeded.map(a=>a.name),['caixa','Sabadell','Cajamar','Trade','Efectivo']);assert.equal(seeded[0].amount,500);assert.equal(seeded.at(-1).kind,'Efectivo');
+run("state.balances=state.balances.filter(a=>a.name!=='Trade')");assert.equal(run('balances()').length,4);// no reaparece
+console.log('PASS: balances validation, total with negatives, age labels, default accounts seeded once.');
