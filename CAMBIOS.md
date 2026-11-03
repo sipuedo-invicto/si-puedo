@@ -100,3 +100,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - `update.js` + `version.json`: al abrir o volver a la app comprueba si hay versión nueva y recarga sin caché (una sola vez por versión). Los scripts y estilos se cargan con `?v=versión`.
 - Antes de cada publicación: `node tools/bump.cjs`.
 - La versión instalada aparece al final de la Guía.
+
+# Finanzas visual (3 de noviembre de 2026)
+
+- Nuevo `viz.js`. Tarjeta **«Cómo vas este mes»** (Total / Personal / Profesional): semáforo verde/ámbar/rojo comparando gastos con ingresos del mes (si aún no han entrado ingresos, usa la media de los 3 meses anteriores), barra de lo gastado y **«Puedes gastar X € /día»** hasta fin de mes. Gráfico de barras de ingresos y gastos de los **últimos 6 meses** y barras de **en qué gastas** (categorías personales del mes).
+- Tarjeta **«Hucha de impuestos»** (Todas/Profesional) para el trimestre en curso: cuánto apartar para IVA (IVA cobrado − IVA de gastos profesionales) e IRPF (20 % del beneficio sin IVA), restando lo ya pagado de 130 y 303. Los pagos de impuestos no cuentan como gasto deducible. Estimación orientativa.
+- Pruebas: `node tests/viz.cjs`.

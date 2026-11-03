@@ -224,3 +224,41 @@ body.privacy-cover .shell{filter:blur(18px)}
 .balance-net b{color:#fff7e6}
 .global-table .row-net th,.global-table .row-net td{font-weight:700;border-bottom:2px solid #cdb68f}
 .global-table .row-sep th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:#8a7a5e;padding-top:16px;font-weight:600}
+/* Cómo vas este mes */
+.scope-filters{margin:0 0 16px}
+.light-row{display:flex;gap:14px;align-items:center;margin-bottom:16px}
+.light{flex:0 0 46px;height:46px;border-radius:50%;box-shadow:inset 0 0 0 4px #ffffff80}
+.light-verde{background:#5f9a6b}.light-ambar{background:#d9a441}.light-rojo{background:#c0553d}.light-gris{background:#cfc3ad}
+.light-row>div{flex:1;min-width:0}
+.light-text{display:block;font-size:17px;margin-bottom:6px}
+.meter{height:10px;border-radius:6px;background:#eadfca;overflow:hidden;margin:2px 0 6px}
+.meter i{display:block;height:100%;background:#30291f;border-radius:6px}
+.light-row small,.piggy-row small{color:#65563f;font-size:13px}
+.per-day{background:#f3ead8;border-radius:14px;padding:14px 16px;text-align:center;margin-bottom:6px}
+.per-day small{display:block;color:#65563f}
+.per-day strong{display:block;font-size:34px;font-variant-numeric:tabular-nums;margin:2px 0}
+.per-day strong span{font-size:16px;font-weight:500}
+.per-day.neg strong{color:#a5452f}
+.viz-sub{margin:22px 0 10px}
+.bars{display:flex;align-items:flex-end;gap:8px;height:140px;padding-bottom:22px;position:relative}
+.bar-group{flex:1;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;position:relative;min-width:0}
+.bar-pair{display:flex;gap:3px;align-items:flex-end;height:100%;width:100%;justify-content:center}
+.bar{display:block;width:42%;max-width:16px;min-height:2px;border-radius:5px 5px 2px 2px}
+.bar.in,.legend i.in{background:#5f9a6b}.bar.out,.legend i.out{background:#c0553d}
+.bar-group small{position:absolute;bottom:-20px;font-size:11px;color:#726249}
+.legend{display:flex;gap:16px;font-size:13px;color:#65563f;margin-top:4px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.cat-bars{display:grid;gap:9px}
+.cat-bar{display:grid;grid-template-columns:34% 1fr auto;align-items:center;gap:8px;font-size:14px}
+.cat-bar span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cat-bar div{height:10px;background:#eadfca;border-radius:6px;overflow:hidden}
+.cat-bar div i{display:block;height:100%;background:#b8935a;border-radius:6px}
+.cat-bar b{font-weight:600;font-variant-numeric:tabular-nums;font-size:13px}
+/* Hucha */
+.piggy-q{font-size:13px;color:#65563f;font-weight:600}
+.piggy-total{text-align:center;margin:4px 0 16px}
+.piggy-total small{display:block;color:#65563f}
+.piggy-total strong{font-size:34px;font-variant-numeric:tabular-nums}
+.piggy-row{margin-bottom:14px}
+.piggy-head{display:flex;justify-content:space-between;font-size:15px;margin-bottom:4px}
+.meter.iva i{background:#5f9a6b}.meter.irpf i{background:#5f9a6b}
