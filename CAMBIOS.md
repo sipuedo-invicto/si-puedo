@@ -34,3 +34,12 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - **Compartir resumen**, **Copiar texto** e **Imprimir / PDF** para llevarlo a la psicóloga o al médico.
 - Datos en `state.feelings` (opcional; las copias antiguas siguen siendo válidas). Validación en `validFeelings()`.
 - Pruebas: `node tests/feelings.cjs`.
+
+# Diseño más despejado (3 de noviembre de 2026)
+
+- Ocultos en todas las pantallas: etiquetas pequeñas en mayúsculas, subtítulos, etiquetas decorativas, notas explicativas largas y el pie de página. Las notas dentro de los formularios se mantienen. El aviso del 024/112 sigue siempre visible.
+- **Hoy**: solo título, acciones rápidas, aviso de copia (si toca), ánimo, próximas citas, 3 pasos y temporizador. Se quitan las tarjetas de texto, la de energía (ya está en «Me siento») y el recordatorio.
+- **Finanzas**: primero los totales y el registro; «Gastos por categoría» y «Desglose de IVA» plegados; filtros de empresa solo al elegir Profesional; el botón «Separar» solo aparece si hay movimientos sin separar.
+- **Agenda**: fuera la tarjeta de explicación y el consejo; «Pasar citas al Calendario» y «¿Cómo funciona?» bajo la lista.
+- **Tiempo**: comparación y consejo plegados; menos texto.
+- Más espacio entre bloques e interlineado más cómodo. Las pantallas miden entre un 30 % y un 55 % menos.

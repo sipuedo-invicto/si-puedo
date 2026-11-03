@@ -94,3 +94,33 @@ dialog input[type=range]{width:100%;accent-color:#30291f}
 #print-area{display:none}
 @media print{body.printing>*:not(#print-area){display:none!important}body.printing #print-area{display:block;white-space:pre-wrap;font:12pt/1.5 Georgia,serif;color:#000;background:#fff;margin:0}}
 .feel-bar.future{opacity:.35}
+
+/* ===== Modo calma: menos texto, más aire ===== */
+.eyebrow,.pill,#view>.sub,footer,.tag,.aside-note{display:none!important}
+#view .mobile-note:not(.keep){display:none}
+dialog .mobile-note{display:block}
+body{line-height:1.55}
+.card{margin-bottom:22px}
+.card h2{margin-top:0}
+#view>h1,.section-title h1{margin-bottom:22px}
+.meta{line-height:1.45}
+details.fold{padding-top:18px;padding-bottom:18px}
+details.fold>summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary h2{margin:0;font-size:20px}
+details.fold>summary::after{content:'›';font-size:26px;color:#8a7552;transition:transform .2s}
+details.fold[open]>summary::after{transform:rotate(90deg)}
+details.fold[open]>summary{margin-bottom:16px}
+details.fold-inline{margin-top:20px;border-top:1px solid #e7dac3;padding-top:14px}
+details.fold-inline>summary{cursor:pointer;font-weight:600;color:#5a4d38}
+.fold-btn{width:100%;margin-bottom:22px}
+.agenda-tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.feel-chart+.mobile-note{display:block!important}
+@media(max-width:800px){
+  aside .brand img{width:44px!important;height:44px!important}
+  aside .brand{gap:12px}
+  .brand-type strong{font-size:24px}
+  .brand-type small{font-size:10px}
+  #view>h1,.section-title h1{font-size:32px;line-height:1.1}
+  .card{padding:22px 20px}
+}
