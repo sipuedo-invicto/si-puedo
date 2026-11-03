@@ -113,3 +113,8 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - **Aplazado o pendiente de pagar**: al apuntar un modelo se elige «Pagado» o «Aplazado o pendiente». Si está aplazado se crea una **deuda con Hacienda** (Profesional) con el modelo, trimestre y año, que cuenta en «Lo que debo». Al registrar un pago de esa deuda, el gasto hereda el modelo y aparece como pagado en la tabla. La tabla muestra «debes X» por trimestre y una fila «Debes».
 - **Lector de PDF** ajustado al justificante real de la AEAT: «Importe total de la declaración», «Presentación realizada el», y detección de «importes pendientes de ingreso» / solicitud de aplazamiento (preselecciona «Aplazado»). Ya no confunde la casilla «sin actividad» del formulario con un resultado cero; los resultados negativos se tratan como a compensar/devolver.
 - **Pegar resumen del asesor**: se pega un texto como «MODELO 303 2026-3T......1.000,00» y se apuntan todos los modelos de una vez (vista previa antes de guardar).
+
+# Relación de deudas de Hacienda (3 de noviembre de 2026)
+
+- «Pegar resumen» entiende también la **relación de deudas de la AEAT** («Objeto tributario: 2T 2026 130-IRPF … Importe pendiente: …»). Compara con las deudas de impuestos apuntadas y muestra los cambios antes de guardar: **pagado** (deudas que ya no aparecen), **pagado en parte** (baja el pendiente), **intereses** (sube el pendiente) y **deudas nuevas**.
+- Los pagos se registran como gastos del modelo y trimestre, sin tocar los saldos de las cuentas (ya están reflejados). Las demás deudas no se modifican.

@@ -42,3 +42,16 @@ assert.deepEqual(items.map(i=>[i.code,i.quarter,i.taxYear,i.amount]),[['111',3,2
 const s2=run("taxYearSummary(2026,[{amount:100,taxModel:'303',quarter:2,taxYear:2026}],[{amount:3111.22,taxModel:'303',quarter:2,taxYear:2026},{amount:17.5,taxModel:'111',quarter:3,taxYear:2026}])");
 assert.equal(s2.rows[1].m303,100);assert.equal(s2.rows[1].owed303,3111.22);assert.equal(s2.owedTotal111,17.5);assert.equal(s2.total303,100);
 console.log('PASS: real AEAT receipt format (total amount, filing date, deferral), advisor text summary (111/130/303), owed amounts per quarter.');
+
+// Relación de deudas de la AEAT (cifras inventadas) y conciliación con la app
+const LIST='Relación de deudas con importes calculados * Clave de liquidación: A000 * Objeto tributario: 3T 2026 303-I.V.A. EJER:2026 PER:3T * Importe pendiente: 1.002,40 * Situación: Aplazada * Objeto tributario: 2T 2026 130-IRPF PAGO FRA EJER:2026 PER:2T * Importe pendiente: 800,00 * Objeto tributario: 1T 2026 303-I.V.A. EJER:2026 PER:1T * Importe pendiente: 300,50';
+ctx.LIST=LIST;const parsed=run('parseAeatDebtList(LIST)');assert.deepEqual(parsed.map(i=>[i.code,i.quarter,i.taxYear,i.amount]),[['303',3,2026,1002.4],['130',2,2026,800],['303',1,2026,300.5]]);
+assert.equal(run("parseAeatDebtList('MODELO 303 2026-3T....10,00')"),null);
+ctx.state.debts=[{id:'a',taxModel:'303',quarter:3,taxYear:2026,amount:1000},{id:'b',taxModel:'130',quarter:2,taxYear:2026,amount:1000},{id:'c',taxModel:'130',quarter:4,taxYear:2025,amount:500},{id:'x',title:'Préstamo',amount:50}];
+const plan=run('planReconcile(parseAeatDebtList(LIST))');
+assert.deepEqual(plan.map(p=>[p.code,p.quarter,p.taxYear,p.type,p.amount]),[['130',4,2025,'paid',500],['303',1,2026,'new',300.5],['130',2,2026,'partial',200],['303',3,2026,'increase',2.4]]);
+ctx.uid=()=>Math.random().toString(36);ctx.today=()=>'2026-11-03';ctx.applyTx=()=>{};ctx.state.transactions=[];
+run('applyReconcile(planReconcile(parseAeatDebtList(LIST)))');
+assert.deepEqual(run("state.debts.map(d=>(d.taxModel||'-')+':'+d.amount).sort()"),['-:50','130:800','303:1002.4','303:300.5'].sort());
+assert.deepEqual(run("state.transactions.map(t=>t.taxModel+' '+t.quarter+'T '+t.amount)"),['130 4T 500','130 2T 200']);
+console.log('PASS: AEAT debt list parsing and reconciliation (paid, partial, interest increase, new debt; other debts untouched).');
