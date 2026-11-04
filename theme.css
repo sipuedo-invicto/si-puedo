@@ -406,3 +406,21 @@ nav a img.ico-img{width:34px;height:34px;margin:0 auto}
 .face-btn:active{background:#e1d0af}
 nav a img.ico-img[src*="icon-corazon"]{content:url(icon-corazon-nav.png)}
 nav a img.ico-img[src*="icon-cerebro"]{content:url(icon-cerebro-nav.png)}
+/* Logo más grande en la página principal */
+.brand-coin{width:104px;height:104px}
+@media(min-width:801px){.brand-coin{width:84px;height:84px}}
+/* Pantalla de entrada: el logo aparece poco a poco */
+#splash{position:fixed;inset:0;z-index:2000;background:#f4ecdf;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;animation:splashOut .7s ease 2.2s forwards}
+.splash-coin{flex:none;width:min(62vw,260px);height:min(62vw,260px);box-sizing:border-box;border-radius:50%;padding:2.5px;opacity:0;transform:scale(.82);filter:blur(6px);
+background:conic-gradient(from 200deg,#7a5a17,#d9b45a,#fff1bf,#c99a3a,#8a6519,#e6c46c,#fff4cc,#b48a2c,#7a5a17);box-shadow:0 10px 40px #6b4c1226;animation:splashIn 1.5s cubic-bezier(.2,.7,.2,1) .15s forwards}
+.splash-coin img{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;background:#e8d6bb}
+.splash-name{display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:splashText .9s ease 1.1s forwards}
+.splash-name strong{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;font-size:30px;font-weight:600;letter-spacing:.08em;color:#141210}
+.splash-name small{font-size:12px;letter-spacing:.42em;color:#b48c3c}
+@keyframes splashIn{to{opacity:1;transform:none;filter:none}}
+@keyframes splashText{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes splashOut{to{opacity:0;visibility:hidden}}
+@media(prefers-reduced-motion:reduce){.splash-coin,.splash-name{animation-duration:.01s;animation-delay:0s}#splash{animation-delay:1.2s}}
+/* Aviso de Face ID */
+.face-offer{background:linear-gradient(160deg,#ecdcc2,#e3cfae);border:1px solid #d6bd92}
+nav a svg.ico-art{stroke-width:2.1}

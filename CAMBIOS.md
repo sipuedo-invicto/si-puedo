@@ -196,3 +196,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 
 ## 2026.11.04-220705
 - Cerebro: medio cerebro, igual que en el logo.
+
+## 2026.11.04-221209
+- Hoy: sol de línea fina, como Corazón y Cerebro.
+- Logo más grande en la página principal.
+- Al abrir la app, el logo aparece poco a poco.
+- Aviso en Hoy para activar Face ID.

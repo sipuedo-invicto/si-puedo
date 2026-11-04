@@ -31,3 +31,7 @@ const faceBaseDisable=disableProtection;
 disableProtection=async function(){await faceBaseDisable();faceRemove()};
 const faceBaseEnable=enableProtection;
 enableProtection=async function(pin){const had=faceEnabled();await faceBaseEnable(pin);if(had){faceRemove();setTimeout(()=>notify('PIN cambiado. Vuelve a activar Face ID en Protección.'),3700)}};
+// Aviso en Hoy para activar Face ID (hasta que se active o se diga «Ahora no»).
+const FACE_OFFER_OFF='si-puedo-face-offer-off';
+function faceOfferHTML(){try{if(!faceSupported()||faceEnabled()||localStorage.getItem(FACE_OFFER_OFF))return '';const pin=secEnabled();return `<section class="card face-offer"><h2>Abrir con Face ID</h2><p>${pin?'Abre la app con tu cara, sin escribir el PIN.':'Primero pon un PIN. Después podrás abrir con tu cara.'}</p><div class="tax-actions"><button class="primary" data-face="${pin?'setup':'pin'}">${pin?'Activar Face ID':'Poner PIN'}</button><button data-face="later">Ahora no</button></div></section>`}catch{return ''}}
+document.addEventListener('click',e=>{const b=e.target.closest('button');if(!b||!b.dataset.face)return;const a=b.dataset.face;if(a==='setup')faceSetupForm();if(a==='pin')securityMenu();if(a==='later'){try{localStorage.setItem(FACE_OFFER_OFF,'1')}catch{}render();notify('Vale. Lo tienes en el candado de arriba cuando quieras.')}});
