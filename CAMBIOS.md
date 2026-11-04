@@ -148,3 +148,8 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Los modelos con plan no se tocan al pegar la relación de deudas de Hacienda. Operación de buzón `setTaxPlan`.
 - Pruebas: `node tests/taxplans.cjs`.
 - Operación de buzón `setPlanAccount` (cuenta de cobro de los plazos por nombre).
+
+# Impuestos más claros (4 de noviembre de 2026)
+
+- Cada modelo muestra **Total a pagar** (declarado + intereses del aplazamiento), **Pagado** y **Pendiente**, con barra de progreso y % pagado. Totales del año en la parte de arriba.
+- El título del desplegable muestra el **pendiente total** con Hacienda aunque esté cerrado.
