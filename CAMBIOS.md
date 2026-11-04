@@ -202,3 +202,6 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Logo más grande en la página principal.
 - Al abrir la app, el logo aparece poco a poco.
 - Aviso en Hoy para activar Face ID.
+
+## 2026.11.04-221546
+- Corazón y Cerebro girados para que se miren y encajen como en el logo.
