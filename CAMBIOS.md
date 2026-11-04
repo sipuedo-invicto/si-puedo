@@ -184,3 +184,8 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - **Corazón** (lo emocional y personal): Cómo me siento, Casa y Guía. **Cerebro** (lo práctico): Agenda, Tareas, Finanzas y Tiempo. Cada espacio es una página de tarjetas grandes con un dato del momento (ánimo de hoy, pasos pendientes, próxima cita, saldo y deuda…).
 - En cada apartado aparece arriba «‹ Corazón» o «‹ Cerebro» para volver, y la barra marca el espacio activo.
 - Nuevos iconos de línea propios (`spaces.js`, `icons.js`): **corazón anatómico** y **medio cerebro con pliegues**.
+
+## 2026.11.04-220202
+- Corazón y Cerebro: nuevos símbolos de línea fina, al estilo del logo, sobre azulejo beige.
+- Inicio: logo sobre círculo de oro viejo brillante.
+- Fecha de hoy más grande y legible.
