@@ -193,3 +193,6 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 ## 2026.11.04-220613
 - Corazón y Cerebro: dibujos sacados del propio logo.
 - Logo con un contorno dorado fino (solo el borde).
+
+## 2026.11.04-220705
+- Cerebro: medio cerebro, igual que en el logo.
