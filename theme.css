@@ -320,3 +320,6 @@ details.tax-card>summary{flex-wrap:wrap;gap:4px 10px}
 .tq-totals b{font-size:17px}
 /* Me deben */
 .owed-total{font-size:30px;font-weight:600;color:#2f6b3a;font-variant-numeric:tabular-nums;margin:0 0 6px}
+.rec-sum{order:3;flex-basis:100%;font-weight:600;color:#65563f;font-size:15px}
+details.rec-card>summary{flex-wrap:wrap;gap:4px 10px}
+.per-day small+small{margin-top:4px}

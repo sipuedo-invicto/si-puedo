@@ -166,3 +166,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Nuevo `receivables.js` (`state.receivables`): tarjeta **«Me deben»** en Finanzas con quién, cuánto, concepto y área. **Cobrado** (total o parcial) suma a la cuenta elegida; solo crea un ingreso si se marca como cobro de trabajo.
 - Balance global: fila **«Me deben»**, y «Me queda» = tengo − debo + me deben.
 - Buzón: `addReceivable` y `editTransaction` (corregir importe, cuenta o datos de un movimiento).
+
+# Gastos fijos mensuales (4 de noviembre de 2026)
+
+- Nuevo `recurring.js` (`state.recurring`): tarjeta **«Gastos fijos»** en Finanzas (plegada, con el total al mes). Cada gasto fijo se apunta solo el día que toca (día 31 → último día del mes) y se resta de su cuenta.
+- «Puedes gastar X €/día» descuenta los gastos fijos que aún faltan en el mes.
+- Buzón: `addRecurring`. Pruebas: `node tests/recurring.cjs`.
