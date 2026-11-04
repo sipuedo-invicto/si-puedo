@@ -177,3 +177,10 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 
 - **Finanzas** dividida en cuatro pestañas (se recuerda la última): **Resumen** (Tu dinero hoy, Cómo vas este mes, Balance global), **Movimientos** (filtros, registro, gastos por categoría, desglose de IVA), **Fijos y deudas** (Gastos fijos, Deudas, Me deben) e **Impuestos** (Impuestos trimestrales y aplazamientos abiertos, Hucha).
 - **Tipografía para lectura cómoda**: letra del sistema sin remates también en títulos, texto base 17 px (mínimo 13 px), más interlineado y espacio, sin cursivas; ajustes para que importes, filtros y la barra inferior no se partan.
+
+# Dos espacios: Corazón y Cerebro (4 de noviembre de 2026)
+
+- Barra inferior con tres botones: **Hoy · Corazón · Cerebro**.
+- **Corazón** (lo emocional y personal): Cómo me siento, Casa y Guía. **Cerebro** (lo práctico): Agenda, Tareas, Finanzas y Tiempo. Cada espacio es una página de tarjetas grandes con un dato del momento (ánimo de hoy, pasos pendientes, próxima cita, saldo y deuda…).
+- En cada apartado aparece arriba «‹ Corazón» o «‹ Cerebro» para volver, y la barra marca el espacio activo.
+- Nuevos iconos de línea propios (`spaces.js`, `icons.js`): **corazón anatómico** y **medio cerebro con pliegues**.
