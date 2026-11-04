@@ -160,3 +160,9 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Buzón `addTransaction`: solo resta de la cuenta si esa cuenta tiene saldo apuntado.
 - Buzón: operaciones `moveTransaction` (cambiar la cuenta de un movimiento) y `adjustBalance` (transferencias entre cuentas); un paquete puede sustituir a otro (`supersedes`) o aplicar otras operaciones si el anterior ya se añadió (`ifDone`).
 - Movimientos ya incluidos en el saldo de la cuenta (`balanceApplied:false`, opción de buzón `alreadyInBalance`): se muestran con su cuenta pero no se restan ni se devuelven al borrarlos.
+
+# Me deben (4 de noviembre de 2026)
+
+- Nuevo `receivables.js` (`state.receivables`): tarjeta **«Me deben»** en Finanzas con quién, cuánto, concepto y área. **Cobrado** (total o parcial) suma a la cuenta elegida; solo crea un ingreso si se marca como cobro de trabajo.
+- Balance global: fila **«Me deben»**, y «Me queda» = tengo − debo + me deben.
+- Buzón: `addReceivable` y `editTransaction` (corregir importe, cuenta o datos de un movimiento).
