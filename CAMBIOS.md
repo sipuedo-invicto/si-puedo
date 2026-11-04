@@ -139,3 +139,11 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - La tarjeta de impuestos muestra cada trimestre (del más reciente al más antiguo) con, por modelo: **importe declarado**, **✓ Pagado** o **«Pagado X · debes Y»**, e intereses si el pendiente supera lo declarado. Totales del año: Declarado / Pagado / Debes.
 - Lo pagado se deduce de declarado − pendiente cuando no hay pagos apuntados.
 - Si los pagos apuntados de un modelo no cuadran con lo que se debe (más de un 5 % por encima de lo declarado), se muestra un aviso en lugar de «intereses», y lo pagado se calcula como declarado − pendiente. Operación de buzón `removeTaxPayment` para quitar pagos apuntados por error (deshace su efecto en la cuenta).
+
+# Aplazamientos con calendario de plazos (4 de noviembre de 2026)
+
+- Nuevo `taxplans.js` (`state.taxPlans`): calendario de cada aplazamiento (Anexo I de la concesión): fecha, principal, intereses y total de cada plazo.
+- Cada plazo se da por **cobrado al llegar su fecha**: se registra como gasto del modelo y, si se elige «Te los cobran de», se **resta de esa cuenta**. La deuda de cada modelo pasa a ser lo que queda en plazos (con intereses) y su fecha es la del próximo plazo.
+- Tarjeta de impuestos: **Próximos cargos de Hacienda** (3 fechas con su total) y, en cada modelo aplazado, «X/N plazos pagados · próximo …». En Hoy, aviso **7 días antes** de cada cargo con el saldo de la cuenta.
+- Los modelos con plan no se tocan al pegar la relación de deudas de Hacienda. Operación de buzón `setTaxPlan`.
+- Pruebas: `node tests/taxplans.cjs`.

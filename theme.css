@@ -291,3 +291,11 @@ body.privacy-cover .shell{filter:blur(18px)}
 .tq-totals small{display:block;color:#65563f;font-size:12px}
 .tq-totals b{font-variant-numeric:tabular-nums}
 .tq-warn{display:block;color:#a5452f;margin-top:4px}
+/* Aplazamientos */
+.tq-plan{grid-column:1/-1;font-size:13px;color:#65563f;margin-top:2px}
+.charges{background:#f3ead8;border-radius:14px;padding:12px 14px;margin:10px 0 6px}
+.charges h4{margin:0 0 8px;font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:#65563f}
+.charge{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid #e3d5bb}
+.charge span small{display:block;font-size:12px;color:#8a7a5e}
+.charge b{font-variant-numeric:tabular-nums}
+.charges .field{margin-top:10px}
