@@ -1,0 +1,82 @@
+/* Estilo mediterráneo moderno: arena, beige, marrón claro, toques dorados y letras negras.
+   Se carga la última; para volver al estilo anterior basta con quitar esta hoja de index.html. */
+:root{
+  --bg:#f4ecdf;        /* cal / arena clara */
+  --paper:#fcf8f1;     /* tarjetas */
+  --sand:#e8d6bb;      /* arena cálida (fondo del logo) */
+  --clay:#c9a983;      /* marrón claro */
+  --gold:#b48c3c;      /* dorado */
+  --gold-soft:#e3cd9b;
+  --ink:#141210;       /* letras negras */
+  --muted:#5f5143;
+  --line:#e2d3ba;
+  --peach:#efe2cc;
+  --green:#141210;
+  --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+}
+body{background-color:var(--bg);background-image:radial-gradient(ellipse at 15% 0%,#ffffff99,transparent 55%),radial-gradient(ellipse at 90% 85%,#e8d6bb55,transparent 60%);color:var(--ink)}
+.shell{background:transparent}
+aside{background:#efe4d266;border-right-color:var(--line)}
+
+/* Títulos: serif elegante, negro, con una fina línea dorada */
+h1,h2,h3,#form-title,.feel-set legend,details.fold>summary h2{font-family:var(--serif);color:var(--ink);font-weight:600}
+#view>h1{position:relative;padding-bottom:12px}
+#view>h1:after{content:'';position:absolute;left:0;bottom:0;width:56px;height:2px;border-radius:2px;background:var(--gold)}
+.brand strong{font-family:var(--serif);font-weight:600;letter-spacing:.06em;color:var(--ink)}
+.brand small{color:var(--gold);letter-spacing:.32em}
+/* Logo con forma de arco */
+.brand img{border-radius:999px 999px 10px 10px;box-shadow:0 0 0 1px var(--gold-soft)}
+.lock-inner img{border-radius:999px 999px 14px 14px;box-shadow:0 0 0 1px var(--gold-soft)}
+
+/* Tarjetas claras, borde arena y sombra suave */
+.card,.tile{background:var(--paper);border:1px solid var(--line);box-shadow:0 6px 18px #8a6a3a12}
+.hero{background:var(--sand);border-color:#dcc5a0}
+.tile{border-radius:120px 120px 20px 20px;padding-top:26px;text-align:center;align-items:center}
+.tile:active{background:var(--peach)}
+.tile-icon .ico{color:var(--gold)}
+
+/* Antes oscuras: ahora arena cálida con letras negras y filo dorado */
+.balance-card,.inbox-card{background:linear-gradient(160deg,#ecdcc2,#e3cfae);color:var(--ink);border:1px solid #d6bd92}
+.balance-card :is(h2,h3,h4,p,b,strong,span,li,div,em),.inbox-card :is(h2,h3,h4,p,b,strong,span,li,div,em){color:var(--ink)!important}
+.balance-card :is(small,.sub,.global-hint),.inbox-card :is(small,.sub,.global-hint){color:var(--muted)!important}
+.balance-card .ico,.inbox-card .ico{color:var(--ink)}
+.inbox-card button:not(.primary){background:#fcf8f1aa;color:var(--ink);border-color:var(--clay)}
+.balance-card .card-head button{background:#fcf8f1aa;color:var(--ink);border-color:var(--clay)}
+.balance-card .tax-actions .primary,.inbox-card .primary{background:var(--ink);color:#fcf8f1;border-color:var(--ink)}
+.balance-card hr,.balance-card li,.balance-card .row{border-color:#cdb48a!important}
+
+/* Botones: negros y redondeados; secundarios en blanco cálido */
+button{background:#fffdf8;border-color:#dcc9a8}
+button:hover{background:var(--peach)}
+button.primary,.primary,.quick-actions button{background:var(--ink);color:#fcf8f1;border-color:var(--ink)}
+button.primary:hover{background:#2a241d}
+.quick-actions button{border-radius:999px}
+
+/* Selecciones: negro con texto claro, y pestañas con filo dorado */
+.filters .selected,.filters button.selected,.category-card.selected,.agenda-month button.selected,.chip-group input:checked+label{background:var(--ink);color:#fcf8f1;border-color:var(--ink)}
+.fin-tabs button.selected{background:var(--ink);color:#fcf8f1;box-shadow:inset 0 -3px 0 var(--gold)}
+.meter i{background:linear-gradient(90deg,var(--clay),var(--gold))}
+
+/* Campos */
+input,select,textarea{background:#fffdf8;border-color:#dcc9a8;color:var(--ink)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline-color:var(--gold)}
+
+/* Barra de navegación inferior */
+nav{background:#f8f2e8f2;border-top:1px solid var(--gold-soft)}
+nav a{color:#4d4135}
+nav a.active{background:var(--sand);border-color:#dcc5a0;color:var(--ink);box-shadow:inset 0 2px 0 var(--gold)}
+nav a .ico{color:var(--ink)}
+
+/* Detalles */
+.eyebrow,.hero .eyebrow{color:var(--gold)}
+.step{background:var(--sand);color:var(--ink);border-color:#dcc5a0}
+.space-back{background:var(--sand);color:var(--ink)}
+.pdf-note{background:#f3e6cf;color:var(--ink)!important}
+#toast{background:var(--ink);color:#fcf8f1;border-color:var(--gold)}
+.global-table thead th,.charges h4,.time-breakdown .card-head{color:var(--muted)}
+
+/* Pantalla de bloqueo */
+#lock{background:var(--bg)}
+.pin-dots i{border-color:var(--ink)}.pin-dots i.on{background:var(--gold);border-color:var(--gold)}
+.keypad button,.face-btn{background:#fffdf8;border-color:var(--gold-soft);color:var(--ink)}
+.keypad button:active,.face-btn:active{background:var(--sand)}
