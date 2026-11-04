@@ -172,3 +172,8 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Nuevo `recurring.js` (`state.recurring`): tarjeta **«Gastos fijos»** en Finanzas (plegada, con el total al mes). Cada gasto fijo se apunta solo el día que toca (día 31 → último día del mes) y se resta de su cuenta.
 - «Puedes gastar X €/día» descuenta los gastos fijos que aún faltan en el mes.
 - Buzón: `addRecurring`. Pruebas: `node tests/recurring.cjs`.
+
+# Finanzas en pestañas y lectura cómoda (4 de noviembre de 2026)
+
+- **Finanzas** dividida en cuatro pestañas (se recuerda la última): **Resumen** (Tu dinero hoy, Cómo vas este mes, Balance global), **Movimientos** (filtros, registro, gastos por categoría, desglose de IVA), **Fijos y deudas** (Gastos fijos, Deudas, Me deben) e **Impuestos** (Impuestos trimestrales y aplazamientos abiertos, Hucha).
+- **Tipografía para lectura cómoda**: letra del sistema sin remates también en títulos, texto base 17 px (mínimo 13 px), más interlineado y espacio, sin cursivas; ajustes para que importes, filtros y la barra inferior no se partan.
