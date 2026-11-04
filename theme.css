@@ -404,8 +404,8 @@ nav a img.ico-img{width:34px;height:34px;margin:0 auto}
 /* Face ID en la pantalla de bloqueo */
 .face-btn{display:inline-flex;align-items:center;gap:8px;margin:22px auto 0;padding:12px 20px;border-radius:999px;background:#fffaf0;border:1px solid #d3bf9b;color:#1f1a14;font-size:17px}
 .face-btn:active{background:#e1d0af}
-nav a img.ico-img[src*="icon-corazon"]{content:url(icon-corazon-nav.png)}
-nav a img.ico-img[src*="icon-cerebro"]{content:url(icon-cerebro-nav.png)}
+nav a img.ico-img[src*="icon-corazon"]{content:url(icon-corazon-nav.png?v=2)}
+nav a img.ico-img[src*="icon-cerebro"]{content:url(icon-cerebro-nav.png?v=2)}
 /* Logo más grande en la página principal */
 .brand-coin{width:104px;height:104px}
 @media(min-width:801px){.brand-coin{width:84px;height:84px}}
