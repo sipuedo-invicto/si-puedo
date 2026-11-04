@@ -424,3 +424,15 @@ background:conic-gradient(from 200deg,#7a5a17,#d9b45a,#fff1bf,#c99a3a,#8a6519,#e
 /* Aviso de Face ID */
 .face-offer{background:linear-gradient(160deg,#ecdcc2,#e3cfae);border:1px solid #d6bd92}
 nav a svg.ico-art{stroke-width:2.1}
+/* Tareas: día y hora juntos, y aviso en pantalla */
+.task-when{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.task-when .field{margin:12px 0}
+.task-body[data-task-edit]{cursor:pointer}
+.task .meta b{color:#141210;font-weight:700}
+#task-alarm{position:fixed;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top));z-index:1500;animation:alarmIn .35s ease-out}
+.task-alarm-inner{background:#fcf8f1;border:1.5px solid #b48c3c;border-radius:18px;padding:16px 18px;box-shadow:0 12px 34px #3a2a1040;display:grid;gap:8px}
+.task-alarm-inner small{font-size:13px;letter-spacing:.08em;color:#8a6519;font-weight:700}
+.task-alarm-inner b{font-size:21px;color:#141210}
+.task-alarm-actions{display:flex;gap:8px;flex-wrap:wrap}.task-alarm-actions button{min-height:44px}
+@keyframes alarmIn{from{transform:translateY(-20px);opacity:0}}
+.task-when .field,.task-when input{min-width:0;width:100%}

@@ -205,3 +205,8 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 
 ## 2026.11.04-221546
 - Corazón y Cerebro girados para que se miren y encajen como en el logo.
+
+## 2026.11.04-223044
+- Tareas: día, hora y recordatorio. Aviso en pantalla con Hecho / En 10 min / Vale, y opción de añadir el aviso al Calendario del iPhone.
+- Tiempos de tarea: 5, 10, 15 min, media hora, 1 h, 2 h, más de 3 h.
+- Tocar una tarea abre su edición.
