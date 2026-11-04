@@ -159,3 +159,4 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Nueva categoría de gasto personal **Comida**.
 - Buzón `addTransaction`: solo resta de la cuenta si esa cuenta tiene saldo apuntado.
 - Buzón: operaciones `moveTransaction` (cambiar la cuenta de un movimiento) y `adjustBalance` (transferencias entre cuentas); un paquete puede sustituir a otro (`supersedes`) o aplicar otras operaciones si el anterior ya se añadió (`ifDone`).
+- Movimientos ya incluidos en el saldo de la cuenta (`balanceApplied:false`, opción de buzón `alreadyInBalance`): se muestran con su cuenta pero no se restan ni se devuelven al borrarlos.
