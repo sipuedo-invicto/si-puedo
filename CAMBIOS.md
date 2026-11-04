@@ -147,3 +147,4 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Tarjeta de impuestos: **Próximos cargos de Hacienda** (3 fechas con su total) y, en cada modelo aplazado, «X/N plazos pagados · próximo …». En Hoy, aviso **7 días antes** de cada cargo con el saldo de la cuenta.
 - Los modelos con plan no se tocan al pegar la relación de deudas de Hacienda. Operación de buzón `setTaxPlan`.
 - Pruebas: `node tests/taxplans.cjs`.
+- Operación de buzón `setPlanAccount` (cuenta de cobro de los plazos por nombre).
