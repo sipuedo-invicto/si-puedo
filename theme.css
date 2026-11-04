@@ -381,3 +381,7 @@ nav a .ico{width:26px;height:26px}
 .space-head{gap:12px}
 nav a .ico-art{width:30px;height:30px}
 .space-back .ico-art{width:24px;height:24px;stroke-width:3}
+
+/* Face ID en la pantalla de bloqueo */
+.face-btn{display:inline-flex;align-items:center;gap:8px;margin:22px auto 0;padding:12px 20px;border-radius:999px;background:#fffaf0;border:1px solid #d3bf9b;color:#1f1a14;font-size:17px}
+.face-btn:active{background:#e1d0af}
