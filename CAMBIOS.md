@@ -153,3 +153,8 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 
 - Cada modelo muestra **Total a pagar** (declarado + intereses del aplazamiento), **Pagado** y **Pendiente**, con barra de progreso y % pagado. Totales del año en la parte de arriba.
 - El título del desplegable muestra el **pendiente total** con Hacienda aunque esté cerrado.
+
+# Categoría Comida (4 de noviembre de 2026)
+
+- Nueva categoría de gasto personal **Comida**.
+- Buzón `addTransaction`: solo resta de la cuenta si esa cuenta tiene saldo apuntado.

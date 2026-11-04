@@ -1,4 +1,4 @@
-const personalCategories=['Casa','Animales','Ropa','Formación','Ocio','Farmacia','Lotería','Productos de belleza','Gasolina','Otros','Sin categoría'];let categoryFilter='Todas';
+const personalCategories=['Casa','Comida','Animales','Ropa','Formación','Ocio','Farmacia','Lotería','Productos de belleza','Gasolina','Otros','Sin categoría'];let categoryFilter='Todas';
 const personalExpense=t=>t.area==='Personal'&&t.kind==='expense';const categoryOf=t=>personalCategories.includes(t.category)?t.category:'Sin categoría';
 const KEY='aturitmo-v1';
 const fresh=()=>({tasks:[],transactions:[],debts:[],energy:'media',tracking:{sessions:[],active:null},events:[]});
