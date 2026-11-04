@@ -189,3 +189,7 @@ Basado en la versión publicada `b6eb9c967d93c75038147e070caaa6e370bffd78`. No s
 - Corazón y Cerebro: nuevos símbolos de línea fina, al estilo del logo, sobre azulejo beige.
 - Inicio: logo sobre círculo de oro viejo brillante.
 - Fecha de hoy más grande y legible.
+
+## 2026.11.04-220613
+- Corazón y Cerebro: dibujos sacados del propio logo.
+- Logo con un contorno dorado fino (solo el borde).
